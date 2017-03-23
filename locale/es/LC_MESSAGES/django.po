@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-18 09:57-0300\n"
+"PO-Revision-Date: 2017-03-18 10:00-0354\n"
+"Last-Translator: b'administrator  <pauljherrera@gmail.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.7.12\n"
+
+#: .\avantiweb\settings.py:151
+msgid "English"
+msgstr "Inglés"
+
+#: .\avantiweb\settings.py:152
+msgid "Spanish"
+msgstr "cadgas"
+
+#: .\avantiweb\urls.py:36 .\avantiweb\urls.py:37
+msgid "^account/"
+msgstr "^cuenta/"
+
+#: .\avantiweb\urls.py:39
+msgid "^images/"
+msgstr "^imagenes/"
+
+#: .\avantiweb\urls.py:40
+#, fuzzy
+#| msgid "My shop"
+msgid "^shop/"
+msgstr "^tienda/"
+
+#: .\avantiweb\urls.py:41
+msgid "^cart/"
+msgstr "^carrito/"
+
+#: .\avantiweb\urls.py:42
+msgid "^orders/"
+msgstr "^ordenes/"
+
+#: .\avantiweb\urls.py:44
+msgid "^payment/"
+msgstr "^pago/"
+
+#: .\cart\forms.py:8
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: .\shop\templates\shop\base.html:8 .\shop\templates\shop\base.html:13
+msgid "My shop"
+msgstr "Mi tienda"
+
+#: .\shop\templates\shop\base.html:19
+msgid "Your cart"
+msgstr "Carrito"
+
+#: .\shop\templates\shop\base.html:21
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t\t\t\t%(total_items)s item%(total_items_plural)s,\n"
+"\t\t\t\t\t\t\t$%(total_price)s\n"
+"\t\t\t\t\t\t"
+msgstr ""
+"\n"
+"%(total_items)s producto%(total_items_plural)s,\n"
+"$%(total_price)s"
+
+#: .\shop\templates\shop\base.html:27
+msgid "Your cart is empty"
+msgstr "Su carrito está vacío"
+
+#: .\shop\templates\shop\product\detail.html:24
+msgid "Add to cart"
+msgstr "Añadir al carrito"
