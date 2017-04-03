@@ -19,6 +19,13 @@ from courses.models import Course
 from common.decorators import ajax_required
 
 
+def main(request):
+	if request.user.is_authenticated():
+		return render(request, 'account/login.html')
+		
+	return render(request, 'account/login.html')
+
+
 def user_login(request):
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
@@ -38,11 +45,6 @@ def user_login(request):
 		form = LoginForm()
 
 	return render(request, 'account/login.html', {'form': form})
-
-
-@login_required
-def dashboard(request):
-	return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
 
 def register(request):
@@ -88,82 +90,3 @@ def edit(request):
 				  {'user_form': user_form, 'profile_form': profile_form})
 
 
-@login_required
-def user_list(request):
-	users = User.objects.filter(is_active=True)
-	return render(request, 'account/user/list.html',
-				  {'section': 'people',	'users': users})
-
-
-@login_required
-def user_detail(request, username):
-	user = get_object_or_404(User, username=username, is_active=True)
-	return render(request, 'account/user/detail.html',
-				  {'section': 'people',	'user': user})
-
-
-@ajax_required
-@require_POST
-@login_required
-def user_follow(request):
-	user_id = request.POST.get('id')
-	action = request.POST.get('action')
-	if user_id and action:
-		try:
-			user = User.objects.get(id=user_id)
-			if action == 'follow':
-				Contact.objects.get_or_create(
-					user_from=request.user,
-					user_to=user)
-			else:
-				Contact.objects.filter(user_from=request.user,
-									   user_to=user).delete()
-			return JsonResponse({'status':'ok'})
-		except User.DoesNotExist:
-			return JsonResponse({'status':'ko'})
-	return JsonResponse({'status':'ko'})
-
-
-class StudentEnrollCourseView(LoginRequiredMixin, FormView):
-	course = None
-	form_class = CourseEnrollForm
-
-	def form_valid(self, form):
-		self.course = form.cleaned_data['course']
-		self.course.students.add(self.request.user)
-		return super(StudentEnrollCourseView, self).form_valid(form)
-
-	def get_success_url(self):
-		return reverse_lazy('account:student_course_detail', args=[self.course.id])
-
-
-class StudentCourseListView(LoginRequiredMixin, ListView):
-	model = Course
-	template_name = 'account/course/list.html'
-
-	def get_queryset(self):
-		qs = super(StudentCourseListView, self).get_queryset()
-		return qs.filter(students__in=[self.request.user])
-
-
-class StudentCourseDetailView(DetailView):
-	model = Course
-	template_name = 'account/course/detail.html'
-
-	def get_queryset(self):
-		qs = super(StudentCourseDetailView, self).get_queryset()
-		return qs.filter(students__in=[self.request.user])
-
-	def get_context_data(self, **kwargs):
-		context = super(StudentCourseDetailView, self).get_context_data(**kwargs)
-		# get course object
-		course = self.get_object()
-		if 'module_id' in self.kwargs:
-			# get current module
-			context['module'] = course.modules.get(
-									id=self.kwargs['module_id']
-								)
-		else:
-			# get first module
-			context['module'] = course.modules.all()[0]
-		return context

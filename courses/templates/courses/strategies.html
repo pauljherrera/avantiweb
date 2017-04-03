@@ -19,7 +19,7 @@
 			<img id="menu" src="{% static 'courses/images/menu_icon.png' %}" height="30">
 				<h1 id="module-title"></h1>
 			</span>
-			<a class='button'href="{% url 'account:logged_out' %}">
+			<a class='button' href="{% url 'account:logged_out' %}">
 				Logout
 			</a>
 		</header>
@@ -60,11 +60,6 @@
 		$('.module-selected').removeClass('module-selected');
 		$(this).addClass('module-selected');
 
-		$('#module-title').fadeOut(function() {
-			$('#module-title').html($(this).children().html().trim());
-        	$('#module-title').fadeIn();
-        }.bind(this));
-
 		$('content').fadeOut(function() {
 			$.ajax({
 	            url: "{% url 'courses:get_content' %}",
@@ -75,7 +70,12 @@
 				$('content').append(data);
 				$('content').fadeIn();
         	});
-		});	      
+        });	
+
+        $('#module-title').fadeOut(function() {
+			$('#module-title').html($(this).children().html().trim());
+        	$('#module-title').fadeIn();
+        }.bind(this));
 	});
 
 	$('[data-course="{{ request.user.profile.course_bookmark }}"][data-module="{{ request.user.profile.module_bookmark }}"]').trigger('click');
@@ -83,8 +83,8 @@
 	$("header").stick_in_parent();
 
 	$('.help-symbol').mouseenter(function() {
-		$('#help-background').fadeIn(200);
-		$('#help-text').fadeIn(200);		
+		$('#help-background').fadeIn(150);
+		$('#help-text').fadeIn(150);		
 	});
 	$('.help-symbol').mouseleave(function() {
 		$('#help-background').fadeOut(200);
@@ -107,8 +107,6 @@
 		            type: "POST",
 		            data: { question : $('#id_question').val() }
 		    	}).done(function(data){
-		    		console.log('success');
-		    		console.log(data['status'])
 		    		$('#help-popup-answer').fadeOut(function() {
 		    			$('#help-popup-answer').html('We will e-mail you the answer as soon as possible!');
 						$('#help-popup-answer').fadeIn();

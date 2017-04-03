@@ -1,3 +1,51 @@
-<content>
-	
-</content>
+{% load staticfiles %}
+
+<p>Por ahora, no diremos los parámetros exactos de la estrategia. Verás una “X” en su lugar. Estos parámetros son optimizables, es decir, cambian cada nueve meses para adaptarse a las condiciones actuales del mercado. Para saber más sobre lo que es la “Optimización” puedes ir al apéndice.</p>
+
+<p>Los valores exactos de la estrategia aparecerán en el apartado “Parámetros”. En ese mismo capítulo se indicarán los pares de divisas en los que se aplicará la estrategia.</p>
+
+<h2>Inicio de la tendencia.</h2>
+
+<p>Para captar el inicio de una tendencia, esta estrategia usa una Media Móvil Simple.</p>
+
+<p>El número de períodos de la estrategia es uno de los tres parámetros a optimizar.</p>
+
+<h2>Retroceso de la tendencia.</h2>
+
+<p>El retroceso es medido por un indicador llamado “Divergencia Knoxville” (DK de ahora en adelante). Puedes bajarlo <a>aquí</a>.</p>
+
+<p>La DK es un indicador creado por Rob Booker, trader estadounidense de larga trayectoria. Este indicador está conformado a su vez por la unión de dos indicadores creados por Welles Wilder, uno de los analistas técnicos más conocidos del siglo pasado.</p>
+
+<p>Los dos indicadores implicados en la creación de la DK es el RSI y el oscilador de Momentum, dos de los indicadores más conocidos del trading. Para saber cómo se construye este indicador puedes ir al apéndice.</p>
+
+<p>El período de la Divergencia es otro parámetro optimizable.</p>
+
+<p>Debido a que captar visualmente la formación de estas divergencias puede ser un poco engorroso, te ofrecemos el indicador que te señalará automáticamente el momento preciso en que se generan estas divergencias.</p>
+
+<h2>SMA + Knoxville.</h2>
+
+<p>Ahora podemos formular la estrategia de entrada.</p>
+
+<ol>
+	<li>
+		Para comprar: usando una gráfica de 15 minutos, se espera que el precio esté encima de una Media Móvil Simple de X períodos. La segunda condición es que se complete una Divergencia Knoxville alcista de X períodos. 
+	</li>
+	<br>
+	<img class="course-image" src="{% static 'courses/images/m01_c04_i01.png' %}"/>
+	<br><br>
+	<img class="course-image" src="{% static 'courses/images/m01_c04_i02.png' %}"/>
+	<br><br>
+
+	<li>
+		Para vender: usando una gráfica de 15 minutos, se espera que el precio esté debajo de una Media Móvil Simple de X períodos. La segunda condición es que se complete una Divergencia Knoxville bajista de X períodos.
+	</li>
+	<br>
+	<img class="course-image" src="{% static 'courses/images/m01_c04_i03.png' %}"/>
+	<br><br>
+	<img class="course-image" src="{% static 'courses/images/m01_c04_i04.png' %}"/>
+	<br><br>
+</ol>
+ 
+
+
+

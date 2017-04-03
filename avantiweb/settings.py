@@ -208,9 +208,9 @@ SITE_ID = 1
 # Logging settings.
 from django.core.urlresolvers import reverse_lazy
 
-LOGIN_REDIRECT_URL = reverse_lazy('account:dashboard')
-LOGIN_URL = reverse_lazy('account:login')
-LOGOUT_URL = reverse_lazy('account:login')
+LOGIN_REDIRECT_URL = reverse_lazy('courses:strategies')
+LOGIN_URL = reverse_lazy('main')
+LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
 # Images settings.
 MEDIA_URL = '/media/'

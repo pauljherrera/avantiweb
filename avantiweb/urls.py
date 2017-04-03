@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
 
 from blog.sitemaps import PostSitemap
+from account.views import main
 
 
 sitemaps = {
@@ -42,9 +43,9 @@ urlpatterns = i18n_patterns(
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
     url(_(r'^payment/'), include('payment.urls', namespace='payment')),
     url(r'^rosetta/', include('rosetta.urls')),
-    url(_(r'^'), include('shop.urls', namespace='shop')),
     url(r'^course/', include('courses.urls', namespace='courses')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
+    url(_(r'^'), main, name='main'),
 )
 
 if settings.DEBUG:

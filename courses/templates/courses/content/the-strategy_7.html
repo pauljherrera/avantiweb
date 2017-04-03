@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<h2>Apéndice A: Optimización.</h2>
+
+<p>Los mercados van cambiando continuamente. Por lo tanto, las estrategias de inversión también deben ir adaptándose a esos cambios en el mercado. Por eso en la inversión sistemática no usamos unos parámetros rígidos para invertir. Al contrario, usamos parámetros optimizables, que van cambiando cada cierto tiempo según las condiciones del mercado.
+
+<p>Por ejemplo, si tenemos una estrategia donde se compra cada vez que el precio cierra por encima de una media móvil, el periodo de la media móvil es optimizable. Por lo tanto, este año la media móvil puede ser de 20 períodos, y el siguiente año puede ser de 50. 
+
+<p>Cada estrategia tiene un número distinto de parámetros optimizables. Pero te advertimos que, si consigues una estrategia con muchos parámetros optimizados, no debes confiar mucho en ella. Las estrategias con muchos parámetros suelen estar “sobreoptimizadas” y suelen mostrar rendimientos espectaculares en el pasado, pero no sirven para nada en tiempo real. Por eso verás que rara vez nuestras estrategias tienen más de 3 parámetros optimizables.
+
+<p>Optimizar no es tarea fácil, y se requiere software especializado para hacerlo. Pero no te preocupes, que en Avanti nosotros hemos desarrollado nuestro propio software para hacerlo, y por eso todas nuestras estrategias están optimizadas. Además, te avisaremos cada vez que tus estrategias tengan nuevos parámetros para que puedas estar siempre actualizado.
+
+<h3 class="content-h3">¿Qué es la sobreoptimización?</h3>
+
+<p>Estadísticamente hablando, y resumiéndolo de la manera más sencilla, crear una estrategia de trading es analizar patrones y variables del pasado, esperando que estos se sigan repitiendo en el futuro. De esta manera podemos ver cómo se ha ido comportado el mercado y así obtener beneficios. Suena muy fácil: ver qué sucedió en el pasado e invertir en base a eso en el futuro. ¡Pan comido!
+
+<p>Pero, y siempre hay un pero…, el asunto no es tan fácil. No todos los patrones del pasado se repiten en el futuro. ¡Solo lo hacen unos pocos! Por eso hay muchos vendedores de estrategias de inversión que ostentan rendimientos espectaculares en el pasado, pero que a la hora de poner sus estrategias en práctica… solo dan pérdidas. Y este es una gran decepción para todos aquellos que quieren adquirir una estrategia para sacar algún provecho del mercado.
+
+<p>Al centro de este problema están dos conceptos llamados “sobreoptimización” y “dilema entre varianza y sesgo” (bias/variance tradeoff). Estos conceptos tan problemáticos también son parte de cuestiones tan avanzadas como la inteligencia artificial, y explicarlos puede llegar a ser sumamente complicado. De hecho, en Avanti, el 70 % de nuestro tiempo se emplea en evitar este par de problemas. 
+
+<p>Pero intentemos explicarlo un poco. Resumiendo, se puede afirmar que mientras más variables analices es más fácil conseguir estrategias con grandes rendimientos en el pasado, pero a cambio es más probable que estas estrategias sean completamente inútiles en el futuro. En cambio, mientras menos variables analices, es más difícil conseguir estrategias rentables, pero hay mayor probabilidad que su poder de predicción continúe intacto con el tiempo. 
+
+<p>Por poner un ejemplo, se puede crear una estrategia que utilice dos medias móviles, el RSI, bandas de Bollinger, un Take Profit y un Stop Loss para determinar las entradas y salidas. Y seguramente, aumentando y disminuyendo los valores de los indicadores y del Stop Loss y el Take Profit, se puede llegar a una estrategia espectacular con rendimientos en el pasado que darían envidia al mejor gestor de fondos de Wall Street. Sin embargo, al ponerla en práctica tendrías mucha suerte si te vas en break even. 
+
+<p>Esto sucede porque esa estrategia tiene seis posibles variables (cuatro indicadores más dos tipos de salidas). 
+
+<p>¿Cómo evitamos eso? La manera más sencilla es quitando variables. Se podrían utilizar solo dos o tres indicadores y una salida. Además, se utilizan otros métodos estadísticos como la “Validación Cruzada” y los “Walkforwards”.
+
+
+<h2>Apéndice B: Formación de la Divergencia Knoxville (DK).</h2>
+
+<p>La DK es una divergencia del oscilador de Momentum que ha sido acompañada en algún momento por la sobreventa o sobrecompra del RSI.
+
+<p>Expliquemos esto paso a paso. La divergencia del Momentum se da cuando el precio y el oscilador muestran patrones que no coinciden. Si el precio está alcanzando nuevos altos y el Momentum está comenzando a descender, estamos en presencia de una divergencia bajista. Si, al contrario, el precio está descendiendo y el Momentum comienza a ascender, tenemos una divergencia alcista.
+
+<p>Veámoslo gráficamente:
+
+<img class="course-image" src="{% static 'courses/images/m01_c07_i01.png' %}"/>
+<br>
+
+<p>Estas divergencias suelen indicar el final o la debilidad de una tendencia.
+
+<p>Para que exista una DK tiene que presentarse una divergencia del oscilador de Momentum, pero además, el RSI tuvo que haber estado sobrevendido (o sobrecomprado según sea el caso) en algún momento durante la formación de la divergencia. Aclaremos que no es necesario que el RSI esté sobrevendido o sobrecomprado al mismo momento que se completa la divergencia, sino que basta que lo haya estado en algún momento durante la formación de la divergencia.
+
+<p>Para facilitar la comprensión, veamos las mismas divergencias anteriores añadiendo el RSI para tratar de detectar si hay divergencias Knoxville.
+
+<img class="course-image" src="{% static 'courses/images/m01_c07_i02.png' %}"/>
+<br>
+
+<p>Las flechas verdes indican una divergencia del Momentum. Además, la flecha verde inferior señala que el RSI llegó a estar sobrevendido mientras se formaba la divergencia. Por lo tanto, sí se completa una Divergencia Knoxville. En cambio, las flechas rojas señalan que, a pesar de que sí hay una divergencia del Momentum, el RSI no llega a estar sobrecomprado. Por lo tanto, no se completa la Divergencia Knoxville.
+
+<p>Aunque es bueno saber cómo se forma cada indicador, es más fácil usar una herramienta automática que te señale la presencia, en este caso, de Divergencias Knoxville. Por eso puedes bajar aquí el indicador. 
+
+
+

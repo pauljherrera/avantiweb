@@ -101,6 +101,7 @@ h4 {
 
 .single-module:hover {
 	cursor: pointer;
+	background-color: #707A2C;
 }
 
 .module-selected {
