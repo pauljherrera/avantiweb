@@ -1,0 +1,102 @@
+main{
+	display: flex;
+	flex-direction: column;
+}
+
+.screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: white;
+	min-height: 600px;
+}
+
+.screen-top {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+}
+
+.screen-bottom {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 20px;
+	padding-top: 0px;
+	margin-top: -15px;
+}
+
+.screen-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	flex-basis: 350px;
+	font-size: 14pt;
+}
+
+.screen-right {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-basis: 350px;
+	justify-content: center;
+	font-size: 18pt;
+	padding: 30px;
+}
+
+#main-screen .screen-right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#main-background{
+	position: absolute;
+	margin-top: -60px;
+	width: 100%;
+	z-index: -1;
+}
+
+#main-screen {
+	background: url('images/main-background.png') center no-repeat;
+	background-size: cover;
+}
+
+#main-screen .marginalized {
+	margin: 20px;
+}
+
+#second-screen {
+	background-color: #707A2C;
+}
+
+#main-motto {
+	display: flex;
+	align-self: center;
+	flex-basis: 70%;
+	font-size: 36pt;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#chart-main-title {
+	margin-top: -15px;
+}
+
+.image-fit {
+	max-width: 100%;
+    height: auto;
+}
+
+.centered-text {
+	text-align: center;
+}
+
+#main-cta {
+	font-size: 30px;
+	padding: 10px 30px 15px 30px;
+}
+

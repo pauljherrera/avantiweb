@@ -29,7 +29,7 @@ class Course(models.Model):
 									  blank=True)
 
 	class Meta:
-		ordering = ('-created',)
+		ordering = ('created',)
 	
 	def __str__(self):
 		return self.title
@@ -93,6 +93,15 @@ class Image(ItemBase):
 class Video(ItemBase):
 	url = models.URLField()
 
+# Models for the user questions.
+class Questions(models.Model):
+	question = models.TextField()
+	owner = models.ForeignKey(User, related_name='questions')
+	created = models.DateTimeField(auto_now_add=True)
+	answered = models.BooleanField(default=False)
+
+	class Meta:
+		ordering = ['-created']
 
 
 

@@ -5,13 +5,17 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateResponseMixin, View
 from django.forms.models import modelform_factory
+from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
 from django.apps import apps
 from django.db.models import Count
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin,\
 						 CsrfExemptMixin, JsonRequestResponseMixin
 
-from .forms import ModuleFormSet
-from .models import Course, Module, Content, Subject
+from common.decorators import ajax_required
+from .forms import ModuleFormSet, QuestionForm
+from .models import Course, Module, Content, Subject, Questions
+from account.models import Profile
 from account.forms import CourseEnrollForm
 
 # Create your views here.
@@ -168,19 +172,18 @@ class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin,
 			return self.render_json_response({'saved': 'OK'})
 
 
-class CourseListView(TemplateResponseMixin, View):
+class CourseListView(LoginRequiredMixin, TemplateResponseMixin, View):
 	model = Course
 	template_name = 'courses/course/list.html'
 
 	def get(self, request, subject=None):
-		subjects = Subject.objects.annotate(total_courses=Count('courses'))
 		courses = Course.objects.annotate(total_modules=Count('modules'))
-		if subject:
-			subject = get_object_or_404(Subject, slug=subject)
-			courses = courses.filter(subject=subject)
-		return self.render_to_response({'subjects': subjects,
-										'subject': subject,	
-										'courses': courses})	
+		courses_joined = [c.id for c in request.user.courses_joined.all()]
+		form = QuestionForm()
+
+		return self.render_to_response({'courses': courses,
+										'courses_joined': courses_joined,
+										'form': form})	
 
 
 class CourseDetailView(DetailView):
@@ -191,4 +194,26 @@ class CourseDetailView(DetailView):
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
 		return context
+
+@ajax_required
+def get_ajax_content(request):
+	course = request.GET['course']
+	module = request.GET['module']
+
+	profile = Profile.objects.filter(user_id=request.user.id)[0]
+	profile.course_bookmark = course
+	profile.module_bookmark = module
+	profile.save()
+
+	return render(request, 'courses/content/{}_{}.html'.format(course, 
+															   module))
+
+@ajax_required
+@require_http_methods(['POST'])
+def post_question(request):
+	question = Questions(question=request.POST.get('question'), 
+						 owner=request.user)
+	question.save()
+
+	return JsonResponse({'status': 'ok'})
 

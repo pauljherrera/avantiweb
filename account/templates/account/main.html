@@ -1,0 +1,71 @@
+{% extends "account/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Avanti{% endblock %}
+
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'account/main.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<div id="main-screen" class="screen">
+			<div class="screen-left screen-top">
+				<p id="main-motto"> Easy-to-implement Forex strategies with State-of-the-art Science under the hood.</p>
+			</div>
+			<div class="screen-bottom">
+				<div class="screen-center">
+					<span>
+						<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main.png' %}">
+					</span>
+					<span id="chart-main-title" class="centered-text">
+						Profits for the complete portfolio of strategies
+					</span>
+				</div>
+				<div class="screen-right">
+					<img id='favicon' src="{% static 'account/images/favicon.png' %}" height="100">
+					<span class="centered-text marginalized">
+						We build strategies with A.I., statistics, coding...
+						<br>
+						You trade them with traditional technical indicators.
+						<br>
+						Hard for us, easy for you.
+					</span>
+					<span class="centered-text marginalized">
+						Start NOW with a FREE strategy
+					</span>
+					<a id="main-cta" class="sign-up button marginalized login-button" data-type='sign-up' href="{% url 'account:register' %}">
+						Sign up
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="second-screen" class="screen">
+			<div class="screen-left"></div>
+			<div class="screen-right"></div>
+		</div>
+		<div id="third-screen" class="screen">
+			<div class="screen-left"></div>
+			<div class="screen-right"></div>
+		</div>
+		<div id="fourth-screen" class="screen">
+			<div class="screen-left"></div>
+			<div class="screen-right"></div>
+		</div>
+		<div id="fifth-screen" class="screen">
+			<div class="screen-left"></div>
+			<div class="screen-right"></div>
+		</div>
+		<div id="sixth-screen" class="screen">
+			<div class="screen-left"></div>
+			<div class="screen-right"></div>
+		</div>
+	</main>
+
+	{% block pop-up %}
+	{% endblock %}
+
+{% endblock %}
+
+

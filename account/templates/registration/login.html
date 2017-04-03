@@ -1,33 +1,49 @@
-{% extends "base.html" %}
+{% extends "account/main.html" %}
+{% load staticfiles %}
 
-{% block title %}Log-in{% endblock %}
-
-{% block content %}
-	<h1>Log-in</h1>
-	{% if form.errors %}
-		<p>
-		Your username and password didn't match.
-		Please try again.
-		</p>
-	{% else %}
-		<p>Please, use the following form to log-in. If you don't have an account <a href="{% url 'account:register' %}">register here</a>.</p>
-	{% endif %}
-
-	<div class="login-form">
-		<form action="{% url 'account:login' %}" method="post">
-			{{ form.as_p }}
-			{% csrf_token %}
-			<input type="hidden" name="next" value="{{ next }}" />
-			<p><input type="submit" value="Log-in"></p>
-		</form>
-
-		<p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
-	</div>
-
-	<div class="social">
-		<ul>
-			<li class="facebook"><a href="{% url 'social:begin' 'facebook' %}">Sign in with Facebook</a></li>
-			<li class="google"><a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a></li>
-		</ul>
-	</div>
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'account/login.css' %}" rel="stylesheet">
 {% endblock %}
+
+{% block pop-up %}
+	<div id="blur"></div>
+
+	<div id="pop-login">
+		
+ 		<div class="social">
+ 			<img id='favicon-login' src="{% static 'account/images/favicon.png' %}" height="100">
+			<div class="google">
+				<span>
+					<img src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-128.png" height="48" class="social-icon"/>
+				</span>
+				<a class='button google-button' href="{% url 'social:begin' 'google-oauth2' %}">
+					<span class="fill-in01"></span> with Google
+				</a>
+			</div>
+			<div class="facebook">
+				<span>
+					<img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/social-facebook-icon.png" height="52" class="social-icon" />
+				</span>
+				<a class='button facebook-button' href="{% url 'social:begin' 'facebook' %}">
+					<span class="fill-in01"></span> with Facebook
+				</a>
+			</div>
+			<div class="line"></div>
+			<div id="terms">
+				<p>
+					<span class="fill-in02"></span>	
+				</p>
+			</div>
+			<div class="close">X</div>
+		</div>
+	
+	</div>
+
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="{% static 'account/js/pop-login.js' %}"></script>
+{% endblock %}
+

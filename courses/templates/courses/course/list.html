@@ -1,47 +1,121 @@
-{% extends "base.html" %}
+{% extends "courses/base.html" %}
+{% load staticfiles %}
 
 {% block title %}
-	{% if subject %}
-		{{ subject.title }} courses
-	{% else %}
-		All courses
-	{% endif %}
+	Strategies
+{% endblock %}
+
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'courses/main.css' %}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-	<h1>
-		{% if subject %}
-			{{ subject.title }} courses
-		{% else %}
-			All courses
-		{% endif %}
-	</h1>
-	<div class="contents">
-		<h3>Subjects</h3>
-		<ul id="modules">
-			<li {% if not subject %}class="selected"{% endif %}>
-				<a href="{% url 'courses:course_list' %}">All</a>
-			</li>
-			{% for s in subjects %}
-				<li {% if subject == s %}class="selected"{% endif %}>
-				<a href="{% url 'courses:course_list_subject' s.slug %}">
-					{{ s.title }}
-					<br><span>{{ s.total_courses }} courses</span>
-				</a>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-	<div class="module">
-		{% for course in courses %}
-			{% with subject=course.subject %}
-				<h3><a href="{% url 'courses:course_detail' course.slug %}">{{ course.title }}</a></h3>
-				<p>
-				<a href="{% url 'courses:course_list_subject' subject.slug	%}">{{ subject }}</a>.
-				{{ course.total_modules }} modules.
-				Instructor: {{ course.owner.get_full_name }}
-				</p>
-			{% endwith %}
-		{% endfor %}
-	</div>
+	<div id="blank-space"></div>
+	<main>
+		<header>
+			<img id="menu" src="{% static 'courses/images/menu_icon.png' %}" height="30">
+				<h1 id="module-title"></h1>
+			</span>
+			<a class='button'href="{% url 'account:logged_out' %}">
+				Logout
+			</a>
+		</header>
+				
+		<content></content>
+
+		<div id="help-footer">
+			<div id="help-background"></div>
+			<div id="help-text">Any doubt? Ask us!</div>
+			<div class="help-symbol">
+				<div class="help-symbol-text">?</div>
+			</div>			
+		</div>
+
+		<div id="help-popup">
+			<div id="help-popup-form">
+				<form action="" method="post", id='post-question'>
+				    {{ form.as_p }}
+					{% csrf_token %}
+					<p><input id='submit-question' class="button" type="submit" value="Send question"></p>
+				</form>
+			</div>
+			<div id='help-popup-answer'>
+				Sending...
+			</div>
+			<div id='help-close'>
+				X
+			</div>
+		</div>
+	</main>
+{% endblock %}
+
+{% block domready %}
+	$('.single-module').click(function(event){
+		var send_data = { course : $(this).data('course'),
+						  module : $(this).data('module')};
+
+		$('.module-selected').removeClass('module-selected');
+		$(this).addClass('module-selected');
+
+		$('#module-title').fadeOut(function() {
+			$('#module-title').html($(this).children().html().trim());
+        	$('#module-title').fadeIn();
+        }.bind(this));
+
+		$('content').fadeOut(function() {
+			$.ajax({
+	            url: "{% url 'courses:get_content' %}",
+	            type: "GET",
+	            data: send_data
+        	}).done(function(data){
+        		$('content').children().remove();
+				$('content').append(data);
+				$('content').fadeIn();
+        	});
+		});	      
+	});
+
+	$('[data-course="{{ request.user.profile.course_bookmark }}"][data-module="{{ request.user.profile.module_bookmark }}"]').trigger('click');
+
+	$("header").stick_in_parent();
+
+	$('.help-symbol').mouseenter(function() {
+		$('#help-background').fadeIn(200);
+		$('#help-text').fadeIn(200);		
+	});
+	$('.help-symbol').mouseleave(function() {
+		$('#help-background').fadeOut(200);
+		$('#help-text').fadeOut(200);		
+	});
+	$('.help-symbol').click(function() {
+		$('#help-popup').animate({bottom:'+=504'}, 300);
+	});
+	$('#help-close').click(function() {
+		$('#help-popup').animate({bottom:'-=504'}, 300);
+	});
+
+	$('#post-question').on('submit', function(event){
+		event.preventDefault();
+
+		$('#post-question').fadeOut(function() {
+			$('#help-popup-answer').fadeIn(function(){
+				$.ajax({
+		            url: "{% url 'courses:post_question' %}",
+		            type: "POST",
+		            data: { question : $('#id_question').val() }
+		    	}).done(function(data){
+		    		console.log('success');
+		    		console.log(data['status'])
+		    		$('#help-popup-answer').fadeOut(function() {
+		    			$('#help-popup-answer').html('We will e-mail you the answer as soon as possible!');
+						$('#help-popup-answer').fadeIn();
+		    		});
+    			});
+			});
+		});
+	});
+
 {% endblock %}

@@ -25,8 +25,8 @@ urlpatterns = [
 	url(r'^content/order/$', views.ContentOrderView.as_view(),
 		name='content_order'),
 	url(r'^list/$', views.CourseListView.as_view(), name='course_list'),
-	url(r'^subject/(?P<subject>[\w-]+)/$', views.CourseListView.as_view(),
-		name='course_list_subject'),
 	url(r'^(?P<slug>[\w-]+)/$', views.CourseDetailView.as_view(),
 		name='course_detail'),
+	url(r'^ajax/content', views.get_ajax_content, name='get_content'),
+	url(r'^ajax/question', views.post_question, name='post_question'),
 ]

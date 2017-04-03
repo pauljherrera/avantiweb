@@ -1,36 +1,95 @@
 {% load staticfiles %}
+{% load course_tags %}
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>{% block title %}Educa{% endblock %}</title>
-	<link href="{% static 'css/base.css' %}" rel="stylesheet">
-
+	<title>{% block title %}{% endblock %}</title>
+	{% block style %}
+		<link href="{% static 'courses/base.css' %}" rel="stylesheet">
+	{% endblock %}
+	<link rel="shortcut icon" type='image/png' href="{% static 'account/images/favicon.png' %}">
 </head>
 <body>
-	<div id="header">
-		<a href="/" class="logo">Educa</a>
-		<ul class="menu">
-		{% if request.user.is_authenticated %}
-			<li><a href="{% url 'account:logged_out' %}">Sign out</a></li>
-		{% else %}
-			<li><a href="{% url 'account:login' %}">Sign in</a></li>
-		{% endif %}
+	<aside>
+		<div class="logo"><img src="{% static 'account/images/logo.png' %}" alt="Logo" id="logo" height="80" /></div>
+
+		<span class="login">
+<!-- 			{% if request.user.is_authenticated %}
+				<a class='button'href="{% url 'account:logged_out' %}">Logout</a>
+			{% endif %}  -->
+		</span>
+		<div id="courses-list">
+			{% for course in courses %}
+				<a>
+					<div class='single-course' >
+						<span class="course-icon" >
+							<img src="">
+						</span>
+						<span>
+							<h3 class="course-title">
+								{{ course.title }}
+							</h3>
+							
+						</span>
+					</div>
+				</a>
+				<div class="modules-list">
+					{% if course.id in courses_joined %}
+						{% for module in course.modules.all %}
+							<a>
+								<div class="single-module" data-course='{{ course.slug }}' data-module='{{ module.order }}'>
+									<h4 class="module-title">
+										{{ module.title }}
+									</h4>
+								</div>
+							</a>	
+						{% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+		
+	</aside>
+
+	{% block content %}
+	{% endblock %}
+	
+	{% if messages %}
+		<ul class="messages">
+		{% for message in messages %}
+			<li class="{{ message.tags }}">
+				{{ message|safe }}
+			<a href="#" class="close">✖</a>
+			</li>
+		{% endfor %}
 		</ul>
-	</div>
-	<div id="content">
-		{% block content %}
-		{% endblock %}
-	</div>
+	{% endif %}
+
 
 	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src=" http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js "></script>
+	<script src="{% static 'courses/js/base.js' %}"></script>
+	<script src="{% static 'courses/js/jquery.sticky.js' %}"></script>
 	<script>
-		$(document).ready(function() {
+		var csrftoken = $.cookie('csrftoken');
+		function csrfSafeMethod(method) {
+			// these HTTP methods do not require CSRF protection
+			return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+		$.ajaxSetup({
+			beforeSend: function(xhr, settings) {
+				if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+					xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				}
+			}
+		});
+		$(document).ready(function(){
 			{% block domready %}
 			{% endblock %}
 		});
 	</script>
-
 </body>
 </html>

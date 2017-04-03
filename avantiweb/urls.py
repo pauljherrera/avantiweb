@@ -33,10 +33,9 @@ urlpatterns = i18n_patterns(
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, 
     	name='django.contrib.sitemaps.views.sitemap'),
-    url(_(r'^account/'), include('account.urls')),
-    url(_(r'^account/'), include('account.urls', namespace='account', app_name='account')),
+    url(r'^account/', include('account.urls')),
+    url(r'^account/', include('account.urls', namespace='account', app_name='account')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(_(r'^images/'), include('images.urls', namespace='images')),
     url(_(r'^shop/'), include('shop.urls', namespace='shop')),
     url(_(r'^cart/'), include('cart.urls', namespace='cart')),
     url(_(r'^orders/'), include('orders.urls', namespace='orders')),
@@ -44,7 +43,7 @@ urlpatterns = i18n_patterns(
     url(_(r'^payment/'), include('payment.urls', namespace='payment')),
     url(r'^rosetta/', include('rosetta.urls')),
     url(_(r'^'), include('shop.urls', namespace='shop')),
-    url(_(r'^course/'), include('courses.urls', namespace='courses')),
+    url(r'^course/', include('courses.urls', namespace='courses')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
 )
 

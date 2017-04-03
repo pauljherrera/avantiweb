@@ -1,0 +1,66 @@
+@font-face { 
+	font-family: ClearSans; 
+	src: url('fonts/ClearSans-Thin.ttf'); 
+}
+
+@font-face { 
+	font-family: ClearSans-Medium; 
+	src: url('fonts/ClearSans-Medium.ttf'); 
+} 
+
+body {
+	background-color: black;
+	margin: 0;
+	font-family: ClearSans;
+}
+
+header{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	background-color: black;
+	padding-top: 2px;
+	padding-bottom: 5px;
+	border-bottom: 5px solid #707A2C;
+}
+
+span .logo {
+	margin-top: 5px;
+	margin-left: 15px;
+}
+
+.login {
+	display: flex;
+	align-self: center;
+}
+
+.button {
+	background: #a7bd43;
+	background-image: -webkit-linear-gradient(top, #a7bd43, #707A2C);
+	background-image: -moz-linear-gradient(top, #a7bd43, #707A2C);
+	background-image: -ms-linear-gradient(top, #a7bd43, #707A2C);
+	background-image: -o-linear-gradient(top, #a7bd43, #707A2C);
+	background-image: linear-gradient(to bottom, #a7bd43, #707A2C);
+	-webkit-border-radius: 1;
+	-moz-border-radius: 1;
+	border-radius: 1px;
+	font-family: ClearSans-Medium;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: -3px;
+	text-decoration: none;
+}
+
+.button:hover{
+	background: #ccd658;
+	background-image: -webkit-linear-gradient(top, #ccd658, #a6ad47);
+	background-image: -moz-linear-gradient(top, #ccd658, #a6ad47);
+	background-image: -ms-linear-gradient(top, #ccd658, #a6ad47);
+	background-image: -o-linear-gradient(top, #ccd658, #a6ad47);
+	background-image: linear-gradient(to bottom, #ccd658, #a6ad47);
+	text-decoration: none;
+	cursor: pointer;
+}
