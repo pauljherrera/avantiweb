@@ -18,7 +18,7 @@ def plans(request):
 	# Redirect to the strategies views if the user is already 
 	# enrolled in a course.
 	if request.user.courses_joined.all():
-		redirect('courses:strategies')
+		return redirect('courses:strategies')
 
 	return render(request, 'courses/plans.html')
 
