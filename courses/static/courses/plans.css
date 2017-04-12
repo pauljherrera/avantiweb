@@ -1,0 +1,95 @@
+@font-face { 
+	font-family: ClearSans-Regular; 
+	src: url('fonts/ClearSans-Regular.ttf'); 
+}
+
+main {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Oswald;
+	font-size: 50pt;
+	font-weight: normal;
+	border-bottom: 1px solid white;
+	width: 65%;
+	margin-left: 3vw;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+table {
+	table-layout: fixed;
+    width: 95%;
+    border-spacing: 40px 0px;
+    margin-left: 3vw;
+}
+
+th {
+	font-family: ClearSans-Regular;
+	font-weight: normal;
+	padding: 5px;
+	text-align: right;
+}
+
+td {
+	border: 1px solid white;
+	padding: 5px;
+	text-align: center;
+	font-size: 24pt;
+}
+
+img {
+	margin-top: 10px;
+}
+
+.plan-head {
+	text-align: center;
+	font-size: 26pt;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 85px;
+}
+
+.t-empty {
+	border: none;
+}
+
+.t-price {
+	font-family: ClearSans-Regular;
+	font-size: 36pt;
+	font-weight: normal;
+}
+
+.plan-button {
+	margin-top: 25px;
+	margin-bottom: 35px;
+}
+
+.top-icon {
+	padding-bottom: 0;
+	padding-top: 40px;
+	margin-bottom: 0;
+}
+
+.plan-icon {
+	width: 100%;
+}
+
+.header-menu {
+	display: none;
+}
+
+#blank-space {
+	width: 100%;
+	height: 105px;
+}

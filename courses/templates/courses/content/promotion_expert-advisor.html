@@ -1,0 +1,38 @@
+{% load staticfiles %}
+
+<div class="promo">
+	<div class="top">
+		<div class="left">
+			The Expert Advisor let's you trade automatically in Metatrader 4.
+			<br><br>
+			Automatic trading gives you precision, avoids human error and never loses a trade.
+			<br><br>
+			Essential for the trader who wants to manage several trading strategies.
+			<br><br>
+		</div>
+		<img  class='ea-icon plan-icon' src="{% static 'courses/images/ea-icon.png' %} ">
+		
+	</div>
+	<table>
+		<tbody>
+			<tr>
+				<td>Complete instructions</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>MT4 Expert Advisor</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>Personalized support</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td class="">Price</th>
+				<td class="t-price yes-icon">35$</td>
+			</tr>
+	
+		</tbody>
+	</table>
+	<a href="{% url 'orders:order_create' pk=1 %}"><div class='buy-button'>BUY</div></a>
+</div>

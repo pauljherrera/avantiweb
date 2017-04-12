@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '14d98a75.ngrok.io',
     '127.0.0.1',
+    'avantifs.pythonanywhere.com'
 ]
 
 
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
     'courses',
     'embed_video',
     'rest_framework',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -99,14 +101,21 @@ WSGI_APPLICATION = 'avantiweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'avantiweb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'wwwpaul26N',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'avantiweb',
-        'USER': 'postgres',
-        'PASSWORD': 'wwwpaul26N',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -208,8 +217,8 @@ SITE_ID = 1
 # Logging settings.
 from django.core.urlresolvers import reverse_lazy
 
-LOGIN_REDIRECT_URL = reverse_lazy('courses:strategies')
-LOGIN_URL = reverse_lazy('main')
+LOGIN_REDIRECT_URL = reverse_lazy('courses:plans')
+# LOGIN_URL = reverse_lazy('main')
 LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
 # Images settings.

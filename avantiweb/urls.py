@@ -45,7 +45,7 @@ urlpatterns = i18n_patterns(
     url(r'^rosetta/', include('rosetta.urls')),
     url(r'^course/', include('courses.urls', namespace='courses')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
-    url(_(r'^'), main, name='main'),
+    url(_(r'^$'), main, name='main'),
 )
 
 if settings.DEBUG:

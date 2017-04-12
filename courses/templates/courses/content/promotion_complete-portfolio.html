@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<div class="promo">
+	<div class="top">
+		<div class="left">
+			Professional traders never put all his capital in just one timeframe, pair or strategy.
+			<br><br>
+			A collection of strategies lets you avoid risks while increasing your potential profits.
+			<br><br>
+			With our complete portfolio you can trade our strategies in many different timeframes and currency pairs.
+			<br><br>
+		</div>
+		<img  class='ea-icon plan-icon' src="{% static 'courses/images/chart-main-black.png' %} ">
+		
+	</div>
+	<table>
+		<tbody>
+			<tr>
+				<td>16 pairs-timeframes</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>Complete instructions</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>MT4 Expert Advisor</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>Personalized support</th>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td>New optimizations in your e-mail</td>
+				<td class="yes-icon"><img src="{% static 'courses/images/yes-icon.png' %}" height="30px"></td>
+			</tr>
+			<tr>
+				<td class="">Price</th>
+				<td class="t-price yes-icon">97$</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="{% url 'orders:order_create' pk=1 %}"><div class='buy-button'>BUY</div></a>
+</div>

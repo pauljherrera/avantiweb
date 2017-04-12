@@ -8,6 +8,11 @@
 	src: url('fonts/ClearSans-Medium.ttf'); 
 } 
 
+@font-face { 
+	font-family: ClearSans-Regular; 
+	src: url('fonts/ClearSans-Regular.ttf'); 
+} 
+
 body {
 	background-color: black;
 	margin: 0;
@@ -15,18 +20,45 @@ body {
 }
 
 header{
+	position: fixed;
+	width: 100%;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	justify-content: space-between;
 	background-color: black;
 	padding-top: 2px;
 	padding-bottom: 5px;
 	border-bottom: 5px solid #707A2C;
+	z-index: 1;
+}
+
+h2 {
+	padding: 0 20px;
+	margin: 0;
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 span .logo {
 	margin-top: 5px;
-	margin-left: 15px;
+	margin-left: 35px;
+}
+
+.header-menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-family: ClearSans;
+	font-size: 16pt;
+}
+
+.header-menu:hover {
+	cursor: pointer;
 }
 
 .login {
@@ -46,7 +78,7 @@ span .logo {
 	border-radius: 1px;
 	font-family: ClearSans-Medium;
 	color: #ffffff;
-	font-size: 20px;
+	font-size: 20pt;
 	padding: 10px 20px 10px 20px;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -63,4 +95,8 @@ span .logo {
 	background-image: linear-gradient(to bottom, #ccd658, #a6ad47);
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.divisor {
+	border-right: 2px solid white;
 }

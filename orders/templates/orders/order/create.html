@@ -1,27 +1,27 @@
-{% extends "shop/base.html" %}
+{% extends "account/base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block title %}
 	{% trans "Checkout" %}
 {% endblock %}
 
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'orders/create.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-	<h1>{% trans "Checkout" %}</h1>
-	<div class="order-info">
-		<h3>{% trans "Your order" %}</h3>
-		<ul>
-			{% for item in cart %}
-				<li>
-				{{ item.quantity }}x {{ item.product.name }}
-					<span>${{ item.total_price }}</span>
-				</li>
-			{% endfor %}
-		</ul>
-		<p>{% trans "Total" %}: ${{ cart.get_total_price }}</p>
-	</div>
-	<form action="." method="post" class="order-form">
-		{{ form.as_p }}
-		<p><input type="submit" value="{% trans 'Place order' %}"></p>
-		{% csrf_token %}
-	</form>
+	<main>
+		<div id="blank-space"></div>
+	
+		<h1>Step 1: Personal information.</h1>
+
+		<form action="{% url 'orders:order_create' pk=product_id %}" method="post" class="order-form">
+			{{ form.as_p }}
+			<p><input type="submit" class="button" value="{% trans 'Next step' %}"></p>
+			{% csrf_token %}
+		</form>
+	</main>
+	
 {% endblock %}

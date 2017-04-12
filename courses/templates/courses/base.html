@@ -22,10 +22,8 @@
 		<div id="courses-list">
 			{% for course in courses %}
 				<a>
-					<div class='single-course' >
-						<span class="course-icon" >
-							<img src="">
-						</span>
+					<div class='single-course {% if course.id not in courses_joined %}promotion-link{% endif %}' data-course='{{ course.slug }}' data-count="{{ forloop.counter }}">
+						<img class="course-icon" src=" {% static 'courses/images/favicon.png' %}" height="40px">
 						<span>
 							<h3 class="course-title">
 								{{ course.title }}
@@ -38,7 +36,7 @@
 					{% if course.id in courses_joined %}
 						{% for module in course.modules.all %}
 							<a>
-								<div class="single-module" data-course='{{ course.slug }}' data-module='{{ module.order }}'>
+								<div class="single-module" data-course='{{ course.slug }}' data-module='{{ module.order }}' data-count="{{ forloop.counter }}">
 									<h4 class="module-title">
 										{{ module.title }}
 									</h4>

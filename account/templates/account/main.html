@@ -10,12 +10,13 @@
 
 {% block content %}
 	<main>
+		<div id="blank-space"></div>
 		<div id="main-screen" class="screen">
-			<div class="screen-left screen-top">
+			<div class="screen-top">
 				<p id="main-motto"> Easy-to-implement Forex strategies with State-of-the-art Science under the hood.</p>
 			</div>
 			<div class="screen-bottom">
-				<div class="screen-center">
+				<div class="screen-left">
 					<span>
 						<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main.png' %}">
 					</span>
@@ -42,24 +43,73 @@
 			</div>
 		</div>
 		<div id="second-screen" class="screen">
-			<div class="screen-left"></div>
-			<div class="screen-right"></div>
+			<div class="screen-right to-right">
+				<span class="centered-text marginalized dark-font pre-cta-text">
+					We have tested dozens of strategies, have written thousands of lines of code and process millions of calculations every day.
+					<br><br>
+					You can have access to the best of these strategies for free.
+					<br><br>
+					Each time we find a better one you'll be noticed.
+					<br><br>
+				</span>
+				<a class="sign-up button marginalized login-button dark-button cta" data-type='sign-up' href="{% url 'account:register' %}">
+					Start Now!
+				</a>
+			</div>
+			<div class="screen-left to-left">
+				<span>
+					<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main-white.png' %}">
+				</span>
+				<span id="chart-main-title" class="centered-text">
+					Profits of the free strategy.
+				</span>
+			</div>
 		</div>
 		<div id="third-screen" class="screen">
-			<div class="screen-left"></div>
-			<div class="screen-right"></div>
+			<div class="screen-left">
+				<span class="to-right">
+					<img id="chart-main" class="image-fit ea-icon" src="{% static 'account/images/ea-icon.png' %}">
+				</span>
+			</div>
+			<div class="screen-right to-left">
+				<span class="centered-text marginalized dark-font pre-cta-text">
+					The Expert Advisor let's you trade automatically.
+					<br><br>
+					It's not just about convenience. It's about precision, avoid human error and never ever lose a trade.
+					<br><br>
+					Essential for the trader who manages several trading strategies.
+					<br><br>
+				</span>
+				<a class="sign-up button marginalized login-button cta" data-type='sign-up' href="{% url 'account:register' %}">
+					Start Now!
+				</a>
+			</div>
 		</div>
 		<div id="fourth-screen" class="screen">
-			<div class="screen-left"></div>
-			<div class="screen-right"></div>
+			<div class="screen-right to-right">
+				<span class="centered-text marginalized dark-font pre-cta-text">
+					Professional traders never put all his capital in just one timeframe, pair or strategy.
+					<br><br>
+					A collection of strategies lets you avoid risks while increasing your potential profits.
+					<br><br>
+					With our complete portfolio you can trade our strategies in many different timeframes and currency pairs.
+					<br><br>
+				</span>
+				<a class="sign-up button marginalized login-button dark-button cta" data-type='sign-up' href="{% url 'account:register' %}">
+					Start Now!
+				</a>
+			</div>
+			<div class="screen-left to-left">
+				<span>
+					<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main-white.png' %}">
+				</span>
+				<span id="chart-main-title" class="centered-text">
+					Profits of the complete portfolio.
+				</span>
+			</div>
 		</div>
 		<div id="fifth-screen" class="screen">
-			<div class="screen-left"></div>
-			<div class="screen-right"></div>
-		</div>
-		<div id="sixth-screen" class="screen">
-			<div class="screen-left"></div>
-			<div class="screen-right"></div>
+			<h3>Disclaimer</h3>
 		</div>
 	</main>
 

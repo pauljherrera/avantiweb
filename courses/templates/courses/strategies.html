@@ -26,6 +26,11 @@
 				
 		<content></content>
 
+		<footer id="next">
+			<h5>Next</h5>
+			<span>>>></span>
+		</footer>
+
 		<div id="help-footer">
 			<div id="help-background"></div>
 			<div id="help-text">Any doubt? Ask us!</div>
@@ -60,6 +65,7 @@
 		$('.module-selected').removeClass('module-selected');
 		$(this).addClass('module-selected');
 
+		$('footer').fadeOut();
 		$('content').fadeOut(function() {
 			$.ajax({
 	            url: "{% url 'courses:get_content' %}",
@@ -69,6 +75,7 @@
         		$('content').children().remove();
 				$('content').append(data);
 				$('content').fadeIn();
+				$('footer').fadeIn().css('display', 'flex');
         	});
         });	
 
@@ -78,7 +85,32 @@
         }.bind(this));
 	});
 
+	$('.promotion-link').click(function(event) {
+		var send_data = { course : $(this).data('course')};
+		$('.module-selected').removeClass('module-selected');
+		$('footer').fadeOut();
+
+		$('content').fadeOut(function() {
+			$.ajax({
+	            url: "{% url 'courses:get_promotion' %}",
+	            type: "GET",
+	            data: send_data
+        	}).done(function(data){
+        		$('content').children().remove();
+				$('content').append(data);
+				$('content').fadeIn();
+        	});
+
+        	$('#module-title').fadeOut(function() {
+        		newText = $($(this).children()[1]).text().trim();
+				$('#module-title').html(newText);
+	        	$('#module-title').fadeIn();
+	        }.bind(this));
+        }.bind(this));
+	})
+
 	$('[data-course="{{ request.user.profile.course_bookmark }}"][data-module="{{ request.user.profile.module_bookmark }}"]').trigger('click');
+	$('.single-course[data-course="{{ request.user.profile.course_bookmark }}"]').trigger('click');
 
 	$("header").stick_in_parent();
 
@@ -115,5 +147,18 @@
 			});
 		});
 	});
+
+	$('#next').click(function() {
+		nextCounter = $('.module-selected').data('count') + 1;
+		selector = '.single-module[data-count=' + nextCounter + ']';
+		nextButton = $(selector);
+
+		if (nextButton[0]) {
+			$(nextButton).trigger('click');
+		}else{
+			$('.module-selected').parent().parent().next().children().trigger('click');
+		};
+	});
+
 
 {% endblock %}

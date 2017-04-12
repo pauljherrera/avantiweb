@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateResponseMixin, View
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.db.models import Count
+from django.urls import reverse
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 
 from common.decorators import ajax_required
@@ -11,6 +13,24 @@ from .models import Course, Module, Questions
 from account.models import Profile
 
 # Create your views here.
+@login_required
+def plans(request):
+	# Redirect to the strategies views if the user is already 
+	# enrolled in a course.
+	if request.user.courses_joined.all():
+		redirect('courses:strategies')
+
+	return render(request, 'courses/plans.html')
+
+
+@login_required
+def enroll(request, course_id):
+	course = Course.objects.filter(id=course_id)[0]
+	course.students.add(request.user)
+
+	return redirect('courses:strategies')
+
+
 class CourseListView(LoginRequiredMixin, TemplateResponseMixin, View):
 	model = Course
 	template_name = 'courses/strategies.html'
@@ -37,6 +57,13 @@ def get_ajax_content(request):
 
 	return render(request, 'courses/content/{}_{}.html'.format(course, 
 															   module))
+
+
+@ajax_required
+def get_ajax_promotion(request):
+	course = request.GET['course']
+
+	return render(request, 'courses/content/promotion_{}.html'.format(course))
 
 
 @ajax_required

@@ -11,11 +11,17 @@
 </head>
 <body>
 	<header>
-		<span class="logo"><img src="{% static 'account/images/logo.png' %}" alt="Logo" class="logo" height="80" /></span>
+		<span class="logo"><a href="{% url 'main' %}"><img src="{% static 'account/images/logo.png' %}" alt="Logo" class="logo" height="80" /></a></span>
+
+		<div class="header-menu">
+			<h2 class="header-option divisor" id="free-strategy">Free Strategy</h2>
+			<h2 class="header-option divisor" id="expert-advisor">Expert Advisor</h2>
+			<h2 class="header-option" id="complete-portfolio">Complete Portfolio</h2>
+		</div>
 
 		<span class="login">
 			{% if request.user.is_authenticated %}
-				<a class='button'href="{% url 'account:logged_out' %}">Logout</a>
+				<a class='button' href="{% url 'account:logged_out' %}">Logout</a>
 			{% else %}
 				<a class='login-button button' data-type='login'>Login</a>
 				<a class="login-button button" data-type='sign-up'>Sign up</a>
@@ -25,19 +31,6 @@
 	</header>
 
 	
-	{% if messages %}
-		<ul class="messages">
-		{% for message in messages %}
-			<li class="{{ message.tags }}">
-				{{ message|safe }}
-			<a href="#" class="close">✖</a>
-			</li>
-		{% endfor %}
-		</ul>
-	{% endif %}
-
-	
-
 	{% block content %}
 	{% endblock %}
 	
@@ -62,6 +55,62 @@
 		$(document).ready(function(){
 			{% block domready %}
 			{% endblock %}
+
+			var headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
+
+			
+			window.addEventListener('scroll', function() {
+
+				var viewable = $(document).scrollTop() + window.innerHeight - 200;
+
+				$('.to-right').each(function() {
+					if ($(this).offset().top < viewable) {
+						$(this).animate({left: '0'}, 700);
+					}
+				});
+
+				$('.to-left').each(function() {
+					if ($(this).offset().top < viewable) {
+						$(this).animate({right: '0'}, 800);
+					}
+				});
+			});
+
+			$('#free-strategy').click(function() {
+				block = false;
+			    currentScreen = 2;
+				var screenOffset = document.getElementById('second-screen').offsetTop;
+				$('html, body').animate({
+			        scrollTop: screenOffset - headerHeight
+			    }, 300, 'swing', setTimeout(function() {
+			    	block = true;
+			    	console.log(block);
+			    },500));
+			});
+			$('#expert-advisor').click(function() {
+				block = false;
+		    	currentScreen = 3;
+				var screenOffset = document.getElementById('third-screen').offsetTop;
+				$('html, body').animate({
+			        scrollTop: screenOffset - headerHeight
+			    }, 300, 'swing', setTimeout(function() {
+			    	block = true;
+			    	console.log(block);
+			    },500));
+			});
+			$('#complete-portfolio').click(function() {
+				block = false;
+			    currentScreen = 4;
+				var screenOffset = document.getElementById('fourth-screen').offsetTop;
+				$('html, body').animate({
+			        scrollTop: screenOffset - headerHeight
+			    }, 300, 'swing', setTimeout(function() {
+			    	block = true;
+			    	console.log(block);
+			    },500));
+			});
+
+				
 		});
 	</script>
 </body>

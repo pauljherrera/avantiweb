@@ -1,0 +1,46 @@
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: white;
+}
+
+.login {
+	display: none;
+}
+
+header {
+	justify-content: center;
+}
+
+h1 {
+	color: #a7bd43;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	font-size: 24pt;
+}
+
+p {
+	display: flex;
+	justify-content: space-between;
+}
+
+.button {
+	text-align: center;
+	flex-grow: 1;
+}
+
+p input {
+	margin-left: 50px;
+	min-width: 320px;
+	font-size: 18pt;
+}
+
+select {
+	min-width: 320px;
+	font-size: 14pt;
+	margin-left: 40px;
+}
