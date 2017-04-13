@@ -1,1 +1,1 @@
-web: gunicorn avantiweb.wsgi
+web: gunicorn avantiweb.wsgi --log-file -
