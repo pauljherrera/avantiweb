@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '14d98a75.ngrok.io',
     '127.0.0.1',
-    'avantifs.pythonanywhere.com'
+    'avantifs.pythonanywhere.com',
+    'avantifs.herokuapp.com',
 ]
 
 
