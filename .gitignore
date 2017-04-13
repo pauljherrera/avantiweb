@@ -2,3 +2,6 @@
 /media
 __pycache__
 /static
+staticfiles
+myvenv
+.env
