@@ -13,34 +13,46 @@ header {
 	justify-content: center;
 }
 
+.header-menu {
+	display: none;
+}
+
 h1 {
+	font-size: 24pt;
 	color: #a7bd43;
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	font-size: 24pt;
+	font-size: 17pt;
 }
 
 p {
 	display: flex;
 	justify-content: space-between;
+	margin: 20px;
 }
 
 .button {
 	text-align: center;
 	flex-grow: 1;
+	margin: 0 40px;
 }
 
 p input {
 	margin-left: 50px;
 	min-width: 320px;
-	font-size: 18pt;
+	font-size: 16pt;
 }
 
 select {
 	min-width: 320px;
-	font-size: 14pt;
+	font-size: 12pt;
 	margin-left: 40px;
+}
+
+#blank-space {
+	width: 100%;
+	height: 94px;
 }

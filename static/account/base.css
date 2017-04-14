@@ -54,7 +54,7 @@ span .logo {
 	align-items: center;
 	color: white;
 	font-family: ClearSans;
-	font-size: 16pt;
+	font-size: 14pt;
 }
 
 .header-menu:hover {
@@ -78,8 +78,8 @@ span .logo {
 	border-radius: 1px;
 	font-family: ClearSans-Medium;
 	color: #ffffff;
-	font-size: 26pt;
-	padding: 10px 20px 10px 20px;
+	font-size: 18pt;
+	padding: 7px 15px 7px 15px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: -3px;

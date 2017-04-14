@@ -72,7 +72,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    'courses.middleware.SubdomainCourseMiddleware',
 ]
 
 ROOT_URLCONF = 'avantiweb.urls'
