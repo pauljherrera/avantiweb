@@ -277,5 +277,5 @@ REST_FRAMEWORK = {
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(default='postgres://utrarpvfuisuqt:0b51c1aa05ab2a2130a92d205204c508aedea288b7ea5efd51119137ce9075c3@ec2-54-235-153-124.compute-1.amazonaws.com:5432/dbb20dl9q4ashi', 
-                                     conn_max_age=500)
+                                     conn_max_age=100)
 DATABASES['default'].update(db_from_env)
