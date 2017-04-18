@@ -17,7 +17,7 @@ body {
 	background-color: black;
 	margin: 0;
 	font-family: ClearSans;
-	max-width: 100vw;
+	width: 100%;
 	overflow-x: hidden;
 }
 
@@ -32,7 +32,6 @@ header{
 	padding-top: 2px;
 	padding-bottom: 5px;
 	border-bottom: 5px solid #707A2C;
-	max-width: 100vw;
 	z-index: 1;
 }
 
@@ -166,4 +165,8 @@ span .logo {
 	.login-button {
 		margin: 10px 5px;
 	}
+}
+
+@-ms-viewport{
+  width: device-width;
 }

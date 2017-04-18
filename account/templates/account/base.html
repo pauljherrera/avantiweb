@@ -8,7 +8,7 @@
 		<link href="{% static 'account/base.css' %}" rel="stylesheet">
 	{% endblock %}
 	<link rel="shortcut icon" type='image/png' href="{% static 'account/images/favicon.png' %}">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<header>
@@ -45,69 +45,56 @@
 			{% endblock %}
 
 			var headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
-
 			
 			window.addEventListener('scroll', function() {
 
 				var viewable = $(document).scrollTop() + window.innerHeight - 200;
 
 				$('.to-right').each(function() {
-					if ($(this).offset().top < viewable) {
-						$(this).animate({left: '0'}, 700);
+					if (this.offsetTop < viewable) {
+						$(this).animate({left: '0'}, 800);
 					}
 				});
 
 				$('.to-left').each(function() {
-					if ($(this).offset().top < viewable) {
+					if (this.offsetTop < viewable) {
 						$(this).animate({right: '0'}, 800);
 					}
 				});
 			});
 
 			$('#free-strategy').click(function() {
-				block = false;
-			    currentScreen = 2;
 				var screenOffset = document.getElementById('second-screen').offsetTop;
 
-				if (document.getElementById('blank-space').offsetHeight == 0) {
+				if (document.getElementById('blank-space').offsetHeight === 0) {
 					headerHeight = 0;
-				};
+				}
 
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
-			    }, 300, 'swing', setTimeout(function() {
-			    	block = true;
-			    },500));
+			    }, 300, 'swing');
 			});
 			$('#expert-advisor').click(function() {
-				block = false;
-		    	currentScreen = 3;
 				var screenOffset = document.getElementById('third-screen').offsetTop;
 
-				if (document.getElementById('blank-space').offsetHeight == 0) {
+				if (document.getElementById('blank-space').offsetHeight === 0) {
 					headerHeight = 0;
-				};
+				}
 
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
-			    }, 300, 'swing', setTimeout(function() {
-			    	block = true;
-			    },500));
+			    }, 500, 'swing');
 			});
 			$('#complete-portfolio').click(function() {
-				block = false;
-			    currentScreen = 4;
 				var screenOffset = document.getElementById('fourth-screen').offsetTop;
 
-				if (document.getElementById('blank-space').offsetHeight == 0) {
+				if (document.getElementById('blank-space').offsetHeight === 0) {
 					headerHeight = 0;
-				};
+				}
 
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
-			    }, 300, 'swing', setTimeout(function() {
-			    	block = true;
-			    },500));
+			    }, 700, 'swing');
 			});
 		});
 	</script>
