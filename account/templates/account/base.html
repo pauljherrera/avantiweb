@@ -16,10 +16,10 @@
 		<div class="header-menu">
 			<h2 class="header-option divisor" id="free-strategy">Free Strategy</h2>
 			<h2 class="header-option divisor" id="expert-advisor">Expert Advisor</h2>
-			<h2 class="header-option" id="complete-portfolio">Complete Portfolio</h2>
+			<h2 class="header-option divisor" id="complete-portfolio">Complete Portfolio</h2>
 		</div>
 
-		<span class="login">
+		<div class="login">
 			{% if request.user.is_authenticated %}
 				<a class='button' href="{% url 'account:logged_out' %}">Logout</a>
 			{% else %}
@@ -27,7 +27,7 @@
 				<a class="login-button button" data-type='sign-up'>Sign up</a>
 
 			{% endif %}
-		</span>
+		</div>
 	</header>
 
 	
@@ -67,6 +67,11 @@
 				block = false;
 			    currentScreen = 2;
 				var screenOffset = document.getElementById('second-screen').offsetTop;
+
+				if (document.getElementById('blank-space').offsetHeight == 0) {
+					headerHeight = 0;
+				};
+				
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
 			    }, 300, 'swing', setTimeout(function() {
@@ -77,6 +82,11 @@
 				block = false;
 		    	currentScreen = 3;
 				var screenOffset = document.getElementById('third-screen').offsetTop;
+
+				if (document.getElementById('blank-space').offsetHeight == 0) {
+					headerHeight = 0;
+				};
+
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
 			    }, 300, 'swing', setTimeout(function() {
@@ -87,6 +97,11 @@
 				block = false;
 			    currentScreen = 4;
 				var screenOffset = document.getElementById('fourth-screen').offsetTop;
+
+				if (document.getElementById('blank-space').offsetHeight == 0) {
+					headerHeight = 0;
+				};
+
 				$('html, body').animate({
 			        scrollTop: screenOffset - headerHeight
 			    }, 300, 'swing', setTimeout(function() {

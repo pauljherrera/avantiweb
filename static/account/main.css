@@ -68,7 +68,7 @@ main{
 
 .pre-cta-text {
 	font-size: 18pt;
-	margin-bottom: 50px;
+	margin-bottom: 5px;
 }
 
 .cta {
@@ -79,12 +79,12 @@ main{
 
 .to-right {
 	position: relative;
-	left: -50vw;
+	left: -100vh;
 }
 
 .to-left {
 	position: relative;
-	right: -50vw;
+	right: -100vh;
 }
 
 #main-screen .screen-right {
@@ -103,6 +103,11 @@ main{
 #main-screen {
 	background: url('images/main-background.png') center no-repeat;
 	background-size: cover;
+}
+
+.no-main-screen {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #main-screen .marginalized {
@@ -145,11 +150,13 @@ main{
 
 #chart-main-title {
 	margin-top: -15px;
+	margin-bottom: 30px;
 }
 
 .image-fit {
 	max-width: 100%;
     height: auto;
+    min-width: 360px;
 }
 
 .centered-text {
@@ -157,12 +164,60 @@ main{
 }
 
 #main-cta {
-	font-size: 30px;
+	font-size: 20pt;
 	padding: 10px 30px 15px 30px;
 }
 
 .ea-icon {
 	min-width: 400px;
+}
+
+@media (max-width: 805px) {
+	.screen-left {
+		order: 1;
+	}
+
+	.screen-right {
+		order: 2;
+	}
+
+	.cta {
+		font-size: 18pt;
+	}
+}
+
+@media (max-width: 755px) {
+	#blank-space {
+		height: 156px;
+	}
+}
+
+@media (max-width: 600px) {
+	#blank-space {
+		display: none;
+	}
+
+	#main-motto {
+		font-size: 24pt;
+		margin-top: 0;
+		margin-bottom: 25px;
+	}
+
+	#favicon {
+		display: none;
+	}
+
+	.image-fit {
+		margin-top: 30px;
+	}
+
+	.screen-right {
+		padding: 30px;
+	}
+
+	.screen-bottom .screen-right {
+		padding: 10px;
+	}
 }
 
 

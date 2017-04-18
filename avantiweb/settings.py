@@ -49,13 +49,11 @@ INSTALLED_APPS = [
     'account',
     'django.contrib.admin',
     'social_django',
-    'sorl.thumbnail',
     'shop',
     'cart',
     'orders',
     'paypal.standard.ipn',
     'payment',
-    'rosetta',
     'courses',
     'embed_video',
     'rest_framework',
@@ -247,7 +245,7 @@ ABSOLUTE_URL_OVERRIDES = {
 CART_SESSION_ID = 'cart'
 
 # django-paypal settings
-PAYPAL_RECEIVER_EMAIL = 'avanti.financial.services@gmail.com'
+PAYPAL_RECEIVER_EMAIL = 'forex.fxb@gmail.com'
 PAYPAL_TEST = True
 
 # Cache settings.
