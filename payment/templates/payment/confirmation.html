@@ -1,0 +1,23 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}Pay using PayPal{% endblock %}
+
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'payment/process.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<main>
+		<div id="blank-space"></div>
+
+		<h1>Step 2: Confirmation.</h1>
+		<form method="post" action="">
+			  {{ form }}
+			  {% csrf_token %}
+			  <input type="submit" value="Yes I Yams">
+		</form>
+	</main>
+{% endblock %}

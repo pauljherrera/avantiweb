@@ -171,6 +171,11 @@ span .logo {
 	}
 }
 
+@media (max-height: 600px) {
+	header {
+		position: relative;
+	}
+
 @-ms-viewport{
   width: device-width;
 }

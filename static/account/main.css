@@ -220,4 +220,8 @@ main{
 	}
 }
 
-
+@media (max-height: 600px) {
+	#blank-space {
+		display: none;
+	}
+}

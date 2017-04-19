@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
-    'paypal.standard.ipn',
+    'paypal.standard',
+    'paypal.pro',
     'payment',
     'courses',
     'embed_video',
@@ -231,10 +232,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('courses:plans')
 # LOGIN_URL = reverse_lazy('main')
 LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
-# Images settings.
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
 # URL.
 ABSOLUTE_URL_OVERRIDES = {
     'auth.user' : lambda u: reverse_lazy('account:user_detail', 
@@ -247,6 +244,9 @@ CART_SESSION_ID = 'cart'
 # django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'forex.fxb@gmail.com'
 PAYPAL_TEST = True
+PAYPAL_WPP_USER = "forex.fxb_api1.gmail.com"
+PAYPAL_WPP_PASSWORD = "S3NPGBVXP74DS2TP"
+PAYPAL_WPP_SIGNATURE = "AiPC9BjkCyDFQXbSkoZcgqH3hpacAcsZRwobOz5BivFOgCWNE0hSx5V6"
 
 # Cache settings.
 CACHES = {

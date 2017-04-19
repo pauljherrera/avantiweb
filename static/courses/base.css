@@ -105,4 +105,32 @@ h4 {
 	background-color:  #707A2C;
 }
 
+#menu-menuicon {
+	display: none;
+}
 
+@media (max-width: 700px) {
+	aside {
+		display: none;
+	}
+}
+
+@media (max-width: 355px) {
+	#menu-menuicon {
+		display: block;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		height: 25px;
+	}
+
+	#menu-menuicon:hover {
+		cursor: pointer;
+	}
+}
+
+
+
+@-ms-viewport{
+  width: device-width;
+}

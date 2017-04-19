@@ -48,6 +48,3 @@ urlpatterns = i18n_patterns(
     url(_(r'^$'), main, name='main'),
 )
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, 
-                          document_root=settings.MEDIA_ROOT)

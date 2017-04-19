@@ -32,7 +32,7 @@
 	display: none;
 	position: fixed;
 	width: 34vw;
-	min-width: 400px;
+	min-width: 320px;
 	height: 80vh;
 	top: 50%;
 	right: 25%;
@@ -127,6 +127,7 @@
 @media (max-width: 700px) {
 	#pop-login {
 		right: 50%;
-		margin-right: -200px;
+		margin-right: -45vw;
+		width: 90vw;
 	}
 }
