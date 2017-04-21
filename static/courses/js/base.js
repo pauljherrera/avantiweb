@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	var mediaquery = window.matchMedia("(max-width: 725px)");
+
 	$('.single-course').click(function(event){
 		var nextSibling = $(this).parent().next();;
 		var droppedDown = $('.dropped-down');
@@ -46,7 +48,6 @@ $(document).ready(function(){
 		}
 	});
 
-	var mediaquery = window.matchMedia("(max-width: 725px)");
 	function handleOrientationChange(mediaquery) {
 	  	if (mediaquery.matches) {
 	   		hideMenu();

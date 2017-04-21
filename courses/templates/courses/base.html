@@ -18,16 +18,12 @@
 			<img id="menu-menuicon" src="{% static 'courses/images/menu_icon.png' %}" >
 		</div>
 
-		<span class="login">
-<!-- 			{% if request.user.is_authenticated %}
-				<a class='button'href="{% url 'account:logged_out' %}">Logout</a>
-			{% endif %}  -->
 		</span>
 		<div id="courses-list">
 			{% for course in courses %}
 				<a>
 					<div class='single-course {% if course.id not in courses_joined %}promotion-link{% endif %}' data-course='{{ course.slug }}' data-count="{{ forloop.counter }}">
-						<img class="course-icon" src=" {% static 'courses/images/favicon.png' %}" height="40px">
+						<img class="course-icon" src=" {% static 'courses/images/favicon.png' %}">
 						<span>
 							<h3 class="course-title">
 								{{ course.title }}
@@ -50,6 +46,14 @@
 					{% endif %}
 				</div>
 			{% endfor %}
+		</div>
+
+		<div class="help-footer aside-help">
+			<div class="help-background"></div>
+			<div class="help-text make-popup">Any doubt? Ask us!</div>
+			<div class="help-symbol make-popup">
+				<div class="help-symbol-text">?</div>
+			</div>			
 		</div>
 		
 	</aside>

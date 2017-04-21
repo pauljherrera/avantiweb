@@ -41,7 +41,7 @@ urlpatterns = i18n_patterns(
     url(_(r'^cart/'), include('cart.urls', namespace='cart')),
     url(_(r'^orders/'), include('orders.urls', namespace='orders')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
-    url(_(r'^payment/'), include('payment.urls', namespace='payment')),
+    url(r'^payment/', include('payment.urls', namespace='payment')),
     url(r'^rosetta/', include('rosetta.urls')),
     url(r'^course/', include('courses.urls', namespace='courses')),
     url(r'^api/', include('courses.api.urls', namespace='api')),

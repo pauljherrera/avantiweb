@@ -31,10 +31,10 @@
 			<span>>>></span>
 		</footer>
 
-		<div id="help-footer">
-			<div id="help-background"></div>
-			<div id="help-text">Any doubt? Ask us!</div>
-			<div class="help-symbol">
+		<div class="help-footer main-help">
+			<div class="help-background"></div>
+			<div class="help-text">Any doubt? Ask us!</div>
+			<div class="help-symbol make-appear make-popup">
 				<div class="help-symbol-text">?</div>
 			</div>			
 		</div>
@@ -58,6 +58,16 @@
 {% endblock %}
 
 {% block domready %}
+	var mediaquery = window.matchMedia("(max-width: 725px)");
+
+	function hideMenu() {
+		$('#blank-space').hide(200);
+		$('aside').hide(200);
+		$('aside').addClass('hidden');
+		$('#blank-space').addClass('hidden');
+		$(document.body).trigger("sticky_kit:recalc");
+	};
+
 	$('.single-module').click(function(event){
 		var send_data = { course : $(this).data('course'),
 						  module : $(this).data('module')};
@@ -83,6 +93,10 @@
 			$('#module-title').html($(this).children().html().trim());
         	$('#module-title').fadeIn();
         }.bind(this));
+
+        if (mediaquery.matches) {
+	   		hideMenu();
+	  	};
 	});
 
 	$('.promotion-link').click(function(event) {
@@ -107,6 +121,10 @@
 	        	$('#module-title').fadeIn();
 	        }.bind(this));
         }.bind(this));
+
+        if (mediaquery.matches) {
+	   		hideMenu();
+	  	};
 	})
 
 	$('[data-course="{{ request.user.profile.course_bookmark }}"][data-module="{{ request.user.profile.module_bookmark }}"]').trigger('click');
@@ -114,19 +132,27 @@
 
 	$("header").stick_in_parent();
 
-	$('.help-symbol').mouseenter(function() {
-		$('#help-background').fadeIn(150);
-		$('#help-text').fadeIn(150);		
+	$('.make-appear').mouseenter(function() {
+		$('.help-background').fadeIn(150);
+		$('.help-text').fadeIn(150);		
 	});
-	$('.help-symbol').mouseleave(function() {
-		$('#help-background').fadeOut(200);
-		$('#help-text').fadeOut(200);		
+	$('.make-appear').mouseleave(function() {
+		$('.help-background').fadeOut(200);
+		$('.help-text').fadeOut(200);		
 	});
-	$('.help-symbol').click(function() {
-		$('#help-popup').animate({bottom:'+=404'}, 300);
+
+	var lockHelp = false;
+	$('.make-popup').click(function() {
+		if (!lockHelp) {
+			$('#help-popup').animate({bottom:'+=404'}, 300);
+			lockHelp = true;
+		}
 	});
 	$('#help-close').click(function() {
-		$('#help-popup').animate({bottom:'-=404'}, 300);
+		if (lockHelp) {
+			$('#help-popup').animate({bottom:'-=404'}, 300);
+			lockHelp = false;
+		}
 	});
 
 	$('#post-question').on('submit', function(event){

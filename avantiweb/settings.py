@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '14d98a75.ngrok.io',
+    'e70b3dcd.ngrok.io',
     '127.0.0.1',
     'avantifs.pythonanywhere.com',
     'avantifs.herokuapp.com',
@@ -277,3 +277,5 @@ import dj_database_url
 db_from_env = dj_database_url.config(default='postgres://utrarpvfuisuqt:0b51c1aa05ab2a2130a92d205204c508aedea288b7ea5efd51119137ce9075c3@ec2-54-235-153-124.compute-1.amazonaws.com:5432/dbb20dl9q4ashi', 
                                      conn_max_age=200)
 DATABASES['default'].update(db_from_env)
+
+APPEND_SLASH=True
