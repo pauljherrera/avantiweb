@@ -46,7 +46,7 @@ class OrderAdmin(admin.ModelAdmin):
 	actions = [export_to_csv]
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ['name', 'price']
+	list_display = ['name', 'price', 'paypal_button', 'course']
 
 
 admin.site.register(Order, OrderAdmin)

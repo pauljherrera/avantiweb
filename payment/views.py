@@ -119,7 +119,14 @@ def payment_notification(request):
 		if payment_status == 'Completed':
 			# Successful payment
 			print('completed')
-			print(request.POST)
+			# Order as completed.
+			order_id = request.POST.get('custom')
+			order = Order.objects.filter(pk=order_id)[0]
+			order.paid = True
+			order.save()
+			#Enrolling user.
+			
+
 			return HttpResponse('')
 		elif payment_status == 'Reversed' or payment_status == 'Refunded':
 			# Payment reversed

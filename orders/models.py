@@ -3,8 +3,11 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 
+from courses.models import Course
+
 # Create your models here.
 class Product(models.Model):
+	course = models.ForeignKey(Course, related_name='product')
 	name = models.CharField(max_length=200, db_index=True)
 	slug = models.SlugField(max_length=200, db_index=True)
 	price = models.DecimalField(max_digits=10, decimal_places=2)
