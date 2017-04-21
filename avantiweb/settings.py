@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    'e70b3dcd.ngrok.io',
+    '0de3900b.ngrok.io',
     '127.0.0.1',
     'avantifs.pythonanywhere.com',
     'avantifs.herokuapp.com',

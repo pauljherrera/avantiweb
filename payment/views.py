@@ -56,7 +56,7 @@ def payment_process(request):
 	form = PayPalPaymentsForm(initial=paypal_dict)
 	
 	return render(request, 'payment/process.html',
-		   		  {'order': order, 'form':form})
+		   		  {'order': order, 'form':form, 'product': order.product})
 
 
 @csrf_exempt

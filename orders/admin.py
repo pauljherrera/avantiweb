@@ -39,7 +39,7 @@ order_detail.allow_tags = True
 
 
 class OrderAdmin(admin.ModelAdmin):
-	list_display = ['id', 'first_name', 'last_name',
+	list_display = ['id', 'owner', 'first_name', 'last_name',
 					'city', 'country', 'paid',
 					'created', 'updated', order_detail]
 	list_filter = ['paid', 'created', 'updated']
