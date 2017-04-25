@@ -56,3 +56,62 @@ select {
 	width: 100%;
 	height: 94px;
 }
+
+@media (max-width: 600px) {
+	h1 {
+		text-align: center;
+	}
+
+	form {
+		min-width: 95vw;
+	}
+
+	form p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 515px) {
+	form p {
+		flex-direction: column;
+		align-items: center;
+		margin: 10px;
+	}
+
+	label {
+		font-size: 16pt;
+		margin: 0;
+	}
+
+	p input {
+		font-size: 14pt;
+		margin: 0;
+	}
+
+	p select {
+		margin: 0;
+		font-size: 14pt;
+	}
+
+	.button {
+		margin-top: 15px;
+	}
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 20pt;
+	}
+
+	p input {
+		font-size: 13pt;
+		min-width: 250px;
+	}
+
+	p select {
+		min-width: 200px;
+		font-size: 11pt;
+	}
+}

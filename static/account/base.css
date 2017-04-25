@@ -147,6 +147,10 @@ span .logo {
 		position: relative;
 	}
 
+	#blank-space {
+		display: none;
+	}
+
 	.logo {
 		margin: 8px;
 	}

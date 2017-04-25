@@ -7,7 +7,7 @@ from courses.models import Course
 
 # Create your models here.
 class Product(models.Model):
-	course = models.ForeignKey(Course, related_name='product')
+	course = models.ForeignKey(Course, related_name='product', null=True)
 	name = models.CharField(max_length=200, db_index=True)
 	slug = models.SlugField(max_length=200, db_index=True)
 	price = models.DecimalField(max_digits=10, decimal_places=2)

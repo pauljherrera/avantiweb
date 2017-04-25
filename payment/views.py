@@ -4,8 +4,6 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseForbidden
-from paypal.standard.forms import PayPalPaymentsForm
-from paypal.pro.views import PayPalPro
 
 import sys
 import urllib.parse
@@ -43,20 +41,8 @@ def payment_process(request):
 	order = get_object_or_404(Order, id=order_id)
 	host = request.get_host()
 
-	paypal_dict = {
-		'business': settings.PAYPAL_RECEIVER_EMAIL,
-		'amount': '%.2f' % order.product.price.quantize(Decimal('.01')),
-		'item_name': 'Order {}'.format(order.id),
-		'invoice': str(order.id),
-		'currency_code': 'USD',
-		'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),
-		'return_url': 'http://{}{}'.format(host, reverse('payment:done')),
-		'cancel_return': 'http://{}{}'.format(host,	reverse('payment:canceled')),
-	}
-	form = PayPalPaymentsForm(initial=paypal_dict)
-	
 	return render(request, 'payment/process.html',
-		   		  {'order': order, 'form':form, 'product': order.product})
+		   		  {'order': order, 'product': order.product})
 
 
 @csrf_exempt
@@ -71,7 +57,6 @@ def payment_canceled(request):
 @csrf_exempt
 def payment_notification(request):
 	# print('-----------------ATTENTION: PAYMENT NOTIFICATON--------------------------')
-	# print(request.POST)
 
 	# VERIFY_URL_PROD = 'https://www.paypal.com/cgi-bin/webscr'
 	# VERIFY_URL_TEST = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
@@ -84,16 +69,13 @@ def payment_notification(request):
 	# print()
 
 	# # Read and parse query string
-	# param_str = sys.stdin.readline().strip()
-	# params = urllib.parse.parse_qsl(param_str)
-
-	# # Add '_notify-validate' parameter
-	# params.append(('cmd', '_notify-validate'))
+	# query = 'cmd=_notify-validate'
+	# for key, value in request.POST.items():
+	# 	query += '&%s=%s' % (key, urllib.parse.quote(value))
 
 	# # Post back to PayPal for validation
 	# headers = {'content-type': 'application/x-www-form-urlencoded', 'host': 'www.paypal.com'}
-	# print('here')
-	# r = requests.post(VERIFY_URL, params=params, headers=headers, verify=True)
+	# r = requests.post(VERIFY_URL, params=query, headers=headers, verify=True)
 	# r.raise_for_status()
 
 	# # Check return message and take action as needed
@@ -102,35 +84,69 @@ def payment_notification(request):
 	#     return HttpResponse('')
 	# elif r.text == 'INVALID':
 	#     print('invalid')
+	#     return HttpResponseForbidden()
 	# else:
 	#     print('nor verified nor invalid')
+	#     return HttpResponseForbidden()
 
-	paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
-	query = 'cmd=_notify-validate'
-	for key, value in request.POST.items():
-		query += '&%s=%s' % (key, urllib.parse.quote(value))
-	res = requests.post(paypal_url, data=query, timeout=10)
+	# paypal_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr'
+	# query = 'cmd=_notify-validate'
+	# for key, value in request.POST.items():
+	# 	query += '&%s=%s' % (key, urllib.parse.quote(value))
+	# 	print('&%s=%s' % (key, urllib.parse.quote(value)))
+	# res = requests.post(paypal_url, data=query, timeout=10)
 
-	print(res.text)
-	if res.text == 'VERIFIED':
-		print('verified')
-		# Extract POST variables here
+	# print(res.text)
+	# if res.text == 'VERIFIED':
+	# 	print('verified')
+	# 	# Extract POST variables here
+	# 	payment_status = request.POST.get('payment_status')
+	# 	if payment_status == 'Completed':
+	# 		# Successful payment
+	# 		print('completed')
+	# 		# Order as completed.
+	# 		order_id = request.POST.get('custom')
+	# 		order = Order.objects.filter(pk=order_id)[0]
+	# 		order.paid = True
+	# 		order.save()
+	# 		#Enrolling user.
+
+
+	# 	elif payment_status == 'Reversed' or payment_status == 'Refunded':
+	# 		# Payment reversed
+	# 		print('reversed or refunded')
+	# else:
+	# Adding command for the response.
+	data = b'cmd=_notify-validate&'
+	data += request.body
+	# Posting verification.
+	verification = requests.post('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr', data=data)
+	print(verification.text)
+
+	#Chacking verification
+	if verification.text == 'VERIFIED':
+		# process IPN
+		print(request.POST)
+
 		payment_status = request.POST.get('payment_status')
 		if payment_status == 'Completed':
 			# Successful payment
 			print('completed')
 			# Order as completed.
-			order_id = request.POST.get('custom')
-			order = Order.objects.filter(pk=order_id)[0]
-			order.paid = True
-			order.save()
+			# order_id = request.POST.get('custom')
+			# order = Order.objects.filter(pk=order_id)[0]
+			# order.paid = True
+			# order.save()
 			#Enrolling user.
-			
 
-			return HttpResponse('')
+
 		elif payment_status == 'Reversed' or payment_status == 'Refunded':
 			# Payment reversed
 			print('reversed or refunded')
-			return HttpResponseForbidden()
+
+		return HttpResponse('')
 	else:
 		return HttpResponseForbidden()
+
+
+	

@@ -52,8 +52,6 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
-    'paypal.standard',
-    'paypal.pro',
     'payment',
     'courses',
     'embed_video',
@@ -88,7 +86,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends', 
                 'social_django.context_processors.login_redirect',
-                'cart.context_processors.cart'
             ],
         },
     },
@@ -238,15 +235,6 @@ ABSOLUTE_URL_OVERRIDES = {
                                          args=[u.username])
 }
 
-# Session config.
-CART_SESSION_ID = 'cart'
-
-# django-paypal settings
-PAYPAL_RECEIVER_EMAIL = 'forex.fxb@gmail.com'
-PAYPAL_TEST = True
-PAYPAL_WPP_USER = "forex.fxb_api1.gmail.com"
-PAYPAL_WPP_PASSWORD = "S3NPGBVXP74DS2TP"
-PAYPAL_WPP_SIGNATURE = "AiPC9BjkCyDFQXbSkoZcgqH3hpacAcsZRwobOz5BivFOgCWNE0hSx5V6"
 
 # Cache settings.
 CACHES = {
