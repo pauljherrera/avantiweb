@@ -1,6 +1,45 @@
-{% extends "shop/base.html" %}
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %}
+	{% trans "Payment done" %}
+{% endblock %}
+
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'orders/create.css' %}" rel="stylesheet">
+	<link href="{% static 'payment/done.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-	<h1>Your payment was successful</h1>
-	<p>Your payment has been successfully received.</p>
+	<main>
+		<div id="blank-space"></div>
+	
+		<h1>Congratulations!</h1>
+		<br>
+		<h4>In a few seconds you will be redirected.</h4>
+	</main>
+{% endblock %}
+
+{% block domready %}
+	var waitingTime = 1000;
+
+	function ajax_check() {
+		$.ajax({
+	        url: "{% url 'payment:ajax_check' %}",
+	        type: "GET"
+		}).done(function(data){
+			console.log(data);
+			if (data['status']=='ko') {
+				waitingTime = waitingTime * 2;
+				window.setTimeout(ajax_check, waitingTime);
+			} else {
+				window.location.replace("{% url 'courses:strategies' %}");
+			};
+		});
+	};
+
+	ajax_check();
+	
 {% endblock %}

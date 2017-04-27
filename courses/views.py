@@ -25,7 +25,7 @@ def plans(request):
 
 @login_required
 def enroll(request, course_id):
-	course = Course.objects.filter(id=course_id)[0]
+	course = Course.objects.filter(id=1)[0] #Only used for free course enrollment.
 	course.students.add(request.user)
 
 	return redirect('courses:strategies')

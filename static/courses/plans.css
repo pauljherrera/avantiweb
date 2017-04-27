@@ -247,8 +247,3 @@ img {
 	}
 }
 
-@media (max-height: 700px) {
-	#blank-space {
-		display: none;
-	}	
-}

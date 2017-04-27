@@ -14,12 +14,14 @@ def order_create(request, pk):
 		if form.is_valid():
 			order = form.save(commit=False)
 			order.owner = request.user
-			order.product = Product.objects.filter(pk=pk)[0]
+			order.product = Product.objects.filter(pk=request.session['product_id'])[0]
 			order.save()
-			request.session['order_id'] = order.id 
+			request.session['order_id'] = order.id
+			request.session['product_id'] = pk
 
 			return redirect(reverse('payment:process'))
 	else:
+		request.session['product_id'] = pk
 		form = OrderCreateForm()
 
 	return render(request, 'orders/order/create.html',

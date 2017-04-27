@@ -40,13 +40,13 @@ order_detail.allow_tags = True
 
 class OrderAdmin(admin.ModelAdmin):
 	list_display = ['id', 'owner', 'first_name', 'last_name',
-					'city', 'country', 'paid',
+					'city', 'country', 'product', 'paid',
 					'created', 'updated', order_detail]
 	list_filter = ['paid', 'created', 'updated']
 	actions = [export_to_csv]
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ['name', 'price', 'paypal_button', 'course']
+	list_display = ['id', 'name', 'price', 'paypal_button', 'course']
 
 
 admin.site.register(Order, OrderAdmin)

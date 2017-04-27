@@ -226,7 +226,7 @@ SITE_ID = 1
 from django.core.urlresolvers import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('courses:plans')
-# LOGIN_URL = reverse_lazy('main')
+LOGIN_URL = reverse_lazy('main')
 LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
 # URL.

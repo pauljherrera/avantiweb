@@ -1,0 +1,20 @@
+h1 {
+	margin-top: 20vh;
+	font-size: 36pt;
+}
+
+h4 {
+	text-align: center;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 26pt;
+	}
+
+	h4 {
+		font-size: 16pt;
+	}
+}
