@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'social_django',
     'shop',
-    'cart',
     'orders',
     'payment',
     'courses',

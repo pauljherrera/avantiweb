@@ -35,7 +35,7 @@ aside {
 	background-color: #22240e;
 	border-right: 5px solid #707A2C;
 	overflow-y: hidden;
-	z-index: 1;
+	z-index: 5;
 }
 
 h3 {

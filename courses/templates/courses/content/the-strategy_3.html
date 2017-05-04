@@ -1,34 +1,34 @@
 {% load staticfiles %}
 
-<p>Por ahora, no diremos los parámetros exactos de la estrategia. Verás una “X” en su lugar. Estos parámetros son optimizables, es decir, cambian cada nueve meses para adaptarse a las condiciones actuales del mercado. Para saber más sobre lo que es la “Optimización” puedes ir al apéndice.</p>
+<p>By now, we won't say the exact parameters of the strategy. You will see an 'X' in its place. These parameters are optimizable. That means they change from time to time so they can adapt to the actual market conditions. The strategy you are about to learn is optimized every nine months. If you want to know more about what 'optimization' means you can go to the appendix.</p>
 
-<p>Los valores exactos de la estrategia aparecerán en el apartado “Parámetros”. En ese mismo capítulo se indicarán los pares de divisas en los que se aplicará la estrategia.</p>
+<p>The strategy's exact values appear in the 'Parameters' section. In that chapter, you will also know in which currency pairs you can trade this strategy.</p>
 
-<h2>Inicio de la tendencia.</h2>
+<h2>Trend beginning.</h2>
 
-<p>Para captar el inicio de una tendencia, esta estrategia usa una Media Móvil Simple.</p>
+<p>We will catch the trend beginning using a Simple Moving Average (SMA).</p>
 
-<p>El número de períodos de la estrategia es uno de los tres parámetros a optimizar.</p>
+<p>The SMA lookback is one of the three optimizable parameters.</p>
 
-<h2>Retroceso de la tendencia.</h2>
+<h2>Trend retracement.</h2>
 
-<p>El retroceso es medido por un indicador llamado “Divergencia Knoxville” (DK de ahora en adelante). Puedes bajarlo <a>aquí</a>.</p>
+<p>The retracement will be measured by an indicator named 'Knoxville Divergence' -DK from now on-. </p>
 
-<p>La DK es un indicador creado por Rob Booker, trader estadounidense de larga trayectoria. Este indicador está conformado a su vez por la unión de dos indicadores creados por Welles Wilder, uno de los analistas técnicos más conocidos del siglo pasado.</p>
+<p>The DK is an indicator created by Rob Booker, an American trader with a long trajectory. At the same time, this indicator is built by the union of two indicators created by Welles Wilder, one of the most prominent technical analysts of the past century.</p>
 
-<p>Los dos indicadores implicados en la creación de la DK es el RSI y el oscilador de Momentum, dos de los indicadores más conocidos del trading. Para saber cómo se construye este indicador puedes ir al apéndice.</p>
+<p>The two indicators used to built the DK are the Relative Strength Index (RSI) and the Momentum Oscillator, two of the most used indicators among traders. If you want to know in detail how this indicator is built you can go to the appendix. We highly recommend that you learn how every indicator you use work.</p>
 
-<p>El período de la Divergencia es otro parámetro optimizable.</p>
+<p>The lookback of the divergence is another of the optimizable parameters.</p>
 
-<p>Debido a que captar visualmente la formación de estas divergencias puede ser un poco engorroso, te ofrecemos el indicador que te señalará automáticamente el momento preciso en que se generan estas divergencias.</p>
+<p>Visually identifying these divergences can be very challenging. The KD indicator shows you automatically the precise moment in which the divergence appears. You can download it <a href="">here</a>.</p>
 
 <h2>SMA + Knoxville.</h2>
 
-<p>Ahora podemos formular la estrategia de entrada.</p>
+<p>Now we can formulate the entry strategy.</p>
 
 <ol>
 	<li>
-		Para comprar: usando una gráfica de 15 minutos, se espera que el precio esté encima de una Media Móvil Simple de X períodos. La segunda condición es que se complete una Divergencia Knoxville alcista de X períodos. 
+		For buying: using a 15 minutes chart, wait until the price is above an X periods Simple Moving Average. The second condition is that an X period bullish Knoxville Divergence appears. 
 	</li>
 	<br>
 	<img class="course-image" src="{% static 'courses/images/m01_c04_i01.png' %}"/>
@@ -37,7 +37,7 @@
 	<br><br>
 
 	<li>
-		Para vender: usando una gráfica de 15 minutos, se espera que el precio esté debajo de una Media Móvil Simple de X períodos. La segunda condición es que se complete una Divergencia Knoxville bajista de X períodos.
+		For selling: using a 15 minutes chart, wait until the price is below an X periods Simple Moving Average. The second condition is that an X period bearish Knoxville Divergence appears.
 	</li>
 	<br>
 	<img class="course-image" src="{% static 'courses/images/m01_c04_i03.png' %}"/>

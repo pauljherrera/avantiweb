@@ -5,7 +5,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 from .models import Order, Product
 from .forms import OrderCreateForm
 from .tasks import order_created
-from cart.cart import Cart
 
 # Create your views here.
 def order_create(request, pk):

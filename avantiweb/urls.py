@@ -30,18 +30,16 @@ sitemaps = {
 }
 
 urlpatterns = i18n_patterns(
-    url(r'^admin/', admin.site.urls),
+    url(r'^salamanca/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, 
     	name='django.contrib.sitemaps.views.sitemap'),
     url(r'^account/', include('account.urls')),
     url(r'^account/', include('account.urls', namespace='account', app_name='account')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(_(r'^shop/'), include('shop.urls', namespace='shop')),
-    url(_(r'^cart/'), include('cart.urls', namespace='cart')),
     url(_(r'^orders/'), include('orders.urls', namespace='orders')),
-    url(r'^payment/', include('payment.urls', namespace='payment')),
-    url(r'^course/', include('courses.urls', namespace='courses')),
+    url(_(r'^payment/'), include('payment.urls', namespace='payment')),
+    url(_(r'^course/'), include('courses.urls', namespace='courses')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
     url(_(r'^$'), main, name='main'),
 )

@@ -1,55 +1,55 @@
 {% load staticfiles %}
 
-<h2>Apéndice A: Optimización.</h2>
+<h2>Appendix A: Optimization.</h2>
 
-<p>Los mercados van cambiando continuamente. Por lo tanto, las estrategias de inversión también deben ir adaptándose a esos cambios en el mercado. Por eso en la inversión sistemática no usamos unos parámetros rígidos para invertir. Al contrario, usamos parámetros optimizables, que van cambiando cada cierto tiempo según las condiciones del mercado.
+<p>The markets continually change. And investment strategies must adapt to those changes. That's why systematic trading doesn't use rigid parameters to invest. On the contrary, it uses optimizable parameters that change over time according to market conditions. 
 
-<p>Por ejemplo, si tenemos una estrategia donde se compra cada vez que el precio cierra por encima de una media móvil, el periodo de la media móvil es optimizable. Por lo tanto, este año la media móvil puede ser de 20 períodos, y el siguiente año puede ser de 50. 
+<p>For example, if we have a strategy in which we buy each time the price closes above a Moving Average, the Moving Average lookback period is optimizable. Therefore, this year we may use a 20-periods Moving Average, and the next year we may use a 50-periods one. 
 
-<p>Cada estrategia tiene un número distinto de parámetros optimizables. Pero te advertimos que, si consigues una estrategia con muchos parámetros optimizados, no debes confiar mucho en ella. Las estrategias con muchos parámetros suelen estar “sobreoptimizadas” y suelen mostrar rendimientos espectaculares en el pasado, pero no sirven para nada en tiempo real. Por eso verás que rara vez nuestras estrategias tienen más de 3 parámetros optimizables.
+<p>Each strategy has a different number of optimizable parameters. But we warn you that, if you find a strategy with a lot of optimizable parameters, you must run away. Don't trust in such strategy. Strategies with a lot of parameters usually are <strong>overoptimized</strong> and usually show spectacular profits in the past but are worthless in real time. That's why Avanti's strategies usually have no more than 3 optimizable parameters. 
 
-<p>Optimizar no es tarea fácil, y se requiere software especializado para hacerlo. Pero no te preocupes, que en Avanti nosotros hemos desarrollado nuestro propio software para hacerlo, y por eso todas nuestras estrategias están optimizadas. Además, te avisaremos cada vez que tus estrategias tengan nuevos parámetros para que puedas estar siempre actualizado.
+<p>Optimize a strategy isn't an easy task. It requires specialized software to do it. But don't worry because in Avanti we have developed our own software to accomplish that and we offer you only already-optimized strategies. We also will notify you each time one of your strategies is optimized again. So you will be always updated and adapted to the actual market conditions.</p> 
 
-<h3 class="content-h3">¿Qué es la sobreoptimización?</h3>
+<h3 class="content-h3">What's overoptimization?</h3>
 
-<p>Estadísticamente hablando, y resumiéndolo de la manera más sencilla, crear una estrategia de trading es analizar patrones y variables del pasado, esperando que estos se sigan repitiendo en el futuro. De esta manera podemos ver cómo se ha ido comportado el mercado y así obtener beneficios. Suena muy fácil: ver qué sucedió en el pasado e invertir en base a eso en el futuro. ¡Pan comido!
+<p>Statistically speaking, and synthesizing as much as possible, creating a trading strategy is the analysis of variables and patterns in the past hoping that they will repeat in the future. This way we can observe how the market has behaved in the past and make profits in the future. It sounds easy! 
 
-<p>Pero, y siempre hay un pero…, el asunto no es tan fácil. No todos los patrones del pasado se repiten en el futuro. ¡Solo lo hacen unos pocos! Por eso hay muchos vendedores de estrategias de inversión que ostentan rendimientos espectaculares en el pasado, pero que a la hora de poner sus estrategias en práctica… solo dan pérdidas. Y este es una gran decepción para todos aquellos que quieren adquirir una estrategia para sacar algún provecho del mercado.
+<p>But -there's always a 'but'- the task is not that easy. Not every pattern found in the past will repeat in the future. Just a few of the do! That's why a lot of trading strategies sellers boast awesome profits in the past, but when you buy their strategies and apply them, it's a whole different story. This is such a great disappointment to every investor in the market.</p>
 
-<p>Al centro de este problema están dos conceptos llamados “sobreoptimización” y “dilema entre varianza y sesgo” (bias/variance tradeoff). Estos conceptos tan problemáticos también son parte de cuestiones tan avanzadas como la inteligencia artificial, y explicarlos puede llegar a ser sumamente complicado. De hecho, en Avanti, el 70 % de nuestro tiempo se emplea en evitar este par de problemas. 
+<p>At the epicenter of this problem, there are two fancy concepts named 'overoptimization' and 'bias/variance tradeoff'. These two problematic concepts are also part of the problems inherent to artificial intelligence, and explain theme can be very complicated. In fact, in Avanti, almost 70% of our time is dedicated to avoiding these two problems. 
 
-<p>Pero intentemos explicarlo un poco. Resumiendo, se puede afirmar que mientras más variables analices es más fácil conseguir estrategias con grandes rendimientos en el pasado, pero a cambio es más probable que estas estrategias sean completamente inútiles en el futuro. En cambio, mientras menos variables analices, es más difícil conseguir estrategias rentables, pero hay mayor probabilidad que su poder de predicción continúe intacto con el tiempo. 
+<p>But let's try to explain it a little bit. Summarizing, you can say the more variables you analyze it is easier to find profitable strategies in the past, but in return, it is more likely that these strategies will be useless in the future. In the other hand, if you analyze just a few variable it is harder to find profitable strategies, but you increase your statistical probabilities that it's prediction power remain intact over time. 
 
-<p>Por poner un ejemplo, se puede crear una estrategia que utilice dos medias móviles, el RSI, bandas de Bollinger, un Take Profit y un Stop Loss para determinar las entradas y salidas. Y seguramente, aumentando y disminuyendo los valores de los indicadores y del Stop Loss y el Take Profit, se puede llegar a una estrategia espectacular con rendimientos en el pasado que darían envidia al mejor gestor de fondos de Wall Street. Sin embargo, al ponerla en práctica tendrías mucha suerte si te vas en break even. 
+<p>Let's make an example. You can create a strategy that uses two Moving Averages, the RSI, Bollinger Bands, a Take Profit and a Stop Loss to determine the entries and the exits. Tweaking the values of the indicators and the horizontal exits you will eventually find a spectacular strategy that would give envy to any Wall Street hedge fund manager. Nevertheless, when you take it to the market you will be lucky if you get out breaking even. 
 
-<p>Esto sucede porque esa estrategia tiene seis posibles variables (cuatro indicadores más dos tipos de salidas). 
+<p>This happens because this strategy has six variables (four indicators plus two kinds of exits). 
 
-<p>¿Cómo evitamos eso? La manera más sencilla es quitando variables. Se podrían utilizar solo dos o tres indicadores y una salida. Además, se utilizan otros métodos estadísticos como la “Validación Cruzada” y los “Walkforwards”.
+<p>How we avoid this? The easiest way is to take away some variables. You can only use two or three indicators and just one exit. It is also possible to use some more statistically-intensive methods such as 'Cross-validation' and 'Walk-forward analysis'. That's exactly what we continually do in Avanti.
 
 
-<h2>Apéndice B: Formación de la Divergencia Knoxville (DK).</h2>
+<h2>Appendix B: Knoxville Divergence formation.</h2>
 
-<p>La DK es una divergencia del oscilador de Momentum que ha sido acompañada en algún momento por la sobreventa o sobrecompra del RSI.
+<p>Knoxville Divergence (KD) is a divergence on the Momentum oscillator that has been accompanied at some time by an overbought or oversold RSI. 
 
-<p>Expliquemos esto paso a paso. La divergencia del Momentum se da cuando el precio y el oscilador muestran patrones que no coinciden. Si el precio está alcanzando nuevos altos y el Momentum está comenzando a descender, estamos en presencia de una divergencia bajista. Si, al contrario, el precio está descendiendo y el Momentum comienza a ascender, tenemos una divergencia alcista.
+<p>Let's explain this step by step. There is a Momentum divergence when the price and the oscillator show patterns that don't agree. If the price is reaching new highs and the Momentum is starting to descend, we are seeing a bearish divergence. On the contrary, if the price is moving down and the Momentum starts to ascend, we have a bullish divergence. 
 
-<p>Veámoslo gráficamente:
+<p>In a chart it looks like this:
 
 <img class="course-image" src="{% static 'courses/images/m01_c07_i01.png' %}"/>
 <br>
 
-<p>Estas divergencias suelen indicar el final o la debilidad de una tendencia.
+<p>These divergences usually indicate the ending or at least the weakness of a trend. 
 
-<p>Para que exista una DK tiene que presentarse una divergencia del oscilador de Momentum, pero además, el RSI tuvo que haber estado sobrevendido (o sobrecomprado según sea el caso) en algún momento durante la formación de la divergencia. Aclaremos que no es necesario que el RSI esté sobrevendido o sobrecomprado al mismo momento que se completa la divergencia, sino que basta que lo haya estado en algún momento durante la formación de la divergencia.
+<p>For there to be a Knoxville Divergence it is necessary the formation of a Momentum Oscillator divergence. In addition to that, the RSI had to have been oversold or overbought <strong>at any moment</strong> of the formation of the divergence. Let's make that clear. It's not necessary the RSI being overbought/oversold at the exact moment of the momentum divergence completion. It is enough that it was overbought/oversold at any moment during the development of the divergence.
 
-<p>Para facilitar la comprensión, veamos las mismas divergencias anteriores añadiendo el RSI para tratar de detectar si hay divergencias Knoxville.
+<p>To make it even more clear, let's see the previous divergences. But let's add the RSI to find out if there is any Knoxville Divergence. 
 
 <img class="course-image" src="{% static 'courses/images/m01_c07_i02.png' %}"/>
 <br>
 
-<p>Las flechas verdes indican una divergencia del Momentum. Además, la flecha verde inferior señala que el RSI llegó a estar sobrevendido mientras se formaba la divergencia. Por lo tanto, sí se completa una Divergencia Knoxville. En cambio, las flechas rojas señalan que, a pesar de que sí hay una divergencia del Momentum, el RSI no llega a estar sobrecomprado. Por lo tanto, no se completa la Divergencia Knoxville.
+<p>The green arrows indicate a bullish momentum divergence. The lowest of the green arrows points at the moment in which the RSI was overbought during the formation of the divergence. That means that indeed we are seeing  bullish Knoxville Divergence. On the contrary, the red arrows show that, even when there is a momentum divergence, the RSI gets near to the overbought limit but it doesn't trespass it. Thus, there isn't a bearish Knoxville Divergence.
 
-<p>Aunque es bueno saber cómo se forma cada indicador, es más fácil usar una herramienta automática que te señale la presencia, en este caso, de Divergencias Knoxville. Por eso puedes bajar aquí el indicador. 
+<p>It's a good thing to know how an indicator is built. But is easier to use an automatic tool that points out the presence of the KD. You can download the indicator <a href="">here</a>.
 
 
 

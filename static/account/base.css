@@ -180,6 +180,10 @@ span .logo {
 		position: relative;
 	}
 
+	#blank-space {
+		display: none;
+	}
+
 @-ms-viewport{
   width: device-width;
 }

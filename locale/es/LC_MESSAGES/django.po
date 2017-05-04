@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-18 09:57-0300\n"
+"POT-Creation-Date: 2017-04-28 15:42-0300\n"
 "PO-Revision-Date: 2017-03-18 10:00-0354\n"
 "Last-Translator: b'administrator  <pauljherrera@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,53 +18,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.7.12\n"
 
-#: .\avantiweb\settings.py:151
+#: .\avantiweb\settings.py:164
 msgid "English"
 msgstr "Inglés"
 
-#: .\avantiweb\settings.py:152
+#: .\avantiweb\settings.py:165
 msgid "Spanish"
-msgstr "cadgas"
-
-#: .\avantiweb\urls.py:36 .\avantiweb\urls.py:37
-msgid "^account/"
-msgstr "^cuenta/"
-
-#: .\avantiweb\urls.py:39
-msgid "^images/"
-msgstr "^imagenes/"
+msgstr "Español"
 
 #: .\avantiweb\urls.py:40
-#, fuzzy
-#| msgid "My shop"
-msgid "^shop/"
-msgstr "^tienda/"
-
-#: .\avantiweb\urls.py:41
-msgid "^cart/"
-msgstr "^carrito/"
-
-#: .\avantiweb\urls.py:42
 msgid "^orders/"
 msgstr "^ordenes/"
 
-#: .\avantiweb\urls.py:44
+#: .\avantiweb\urls.py:41
 msgid "^payment/"
 msgstr "^pago/"
 
-#: .\cart\forms.py:8
-msgid "Quantity"
-msgstr "Cantidad"
+#: .\avantiweb\urls.py:42
+#, fuzzy
+#| msgid "^orders/"
+msgid "^course/"
+msgstr "^curso/"
+
+#: .\avantiweb\urls.py:44
+msgid "^$"
+msgstr "^$"
+
+#: .\courses\urls.py:7
+msgid "^plans/$"
+msgstr "^planes/$"
+
+#: .\courses\urls.py:8
+msgid "^strategies/$"
+msgstr "^estrategias/$"
+
+#: .\payment\templates\payment\done.html:6
+msgid "Payment done"
+msgstr "Pago completado"
+
+#: .\payment\urls.py:7
+msgid "^process/$"
+msgstr "^procesar/$"
+
+#: .\payment\urls.py:8
+msgid "^done/$"
+msgstr "^terminado/$"
 
 #: .\shop\templates\shop\base.html:8 .\shop\templates\shop\base.html:13
 msgid "My shop"
 msgstr "Mi tienda"
 
-#: .\shop\templates\shop\base.html:19
+#: .\shop\templates\shop\base.html:20
+msgid "Language"
+msgstr "Lenguaje"
+
+#: .\shop\templates\shop\base.html:37
 msgid "Your cart"
 msgstr "Carrito"
 
-#: .\shop\templates\shop\base.html:21
+#: .\shop\templates\shop\base.html:39
 #, python-format
 msgid ""
 "\n"
@@ -76,10 +88,27 @@ msgstr ""
 "%(total_items)s producto%(total_items_plural)s,\n"
 "$%(total_price)s"
 
-#: .\shop\templates\shop\base.html:27
+#: .\shop\templates\shop\base.html:45
 msgid "Your cart is empty"
 msgstr "Su carrito está vacío"
 
 #: .\shop\templates\shop\product\detail.html:24
 msgid "Add to cart"
 msgstr "Añadir al carrito"
+
+#~ msgid "^account/"
+#~ msgstr "^cuenta/"
+
+#~ msgid "^images/"
+#~ msgstr "^imagenes/"
+
+#, fuzzy
+#~| msgid "My shop"
+#~ msgid "^shop/"
+#~ msgstr "^tienda/"
+
+#~ msgid "^cart/"
+#~ msgstr "^carrito/"
+
+#~ msgid "Quantity"
+#~ msgstr "Cantidad"

@@ -1,29 +1,29 @@
 {% load staticfiles %}
 
-<p>Así como se tienen unas reglas para entrar al mercado, también es necesario contar con reglas para salir de él. La mayoría de los traders, o usan indicadores para determinar el momento de salida, o establecen un Stop Loss y Take Profit determinados. A este último tipo de salida la llamaremos salidas horizontales y en breve explicaremos por qué. Nosotros utilizamos otro tipo de salidas que llamaremos verticales.</p>
+<p>As we have entry rules, we also need some rules for exiting the market. The vast majority of traders, either use indicators to determine the exit moment, or set a fixed Stop Loss and Take Profit. We will call the latter kind of exit a 'horizontal exit' and we will explain why in brief moments. We will use instead another kind of exit that we will call a 'vertical exit'.</p>
 
-<h2>Salidas horizontales.</h2>
+<h2>Horizontal exits.</h2>
 
-<p>Son las más comunes. En una gráfica se ven así:</p>
+<p>They are the most common ones. In a chart, they look like this:</p>
 
 <img class="course-image" src="{% static 'courses/images/m01_c05_i01.png' %}"/>
 <br>
 
-<p>Las llamamos salidas horizontales porque en una gráfica se ven como dos líneas que limitan el precio al que puede llegar un activo. Una vez el precio toca una de esas líneas horizontales, se dispara automáticamente una salida del mercado, sea con beneficios (Take Profit) o con pérdidas (Stop Loss).</p>
+<p>We call them horizonal exits because in a chart they look as two horizontal lines that limit the price at which an asset can arrive. Once the price touches one of these lines, a market exit automatically triggers, either with benefits (Take Profit) or losses (Stop Loss).</p>
 
-<p>Para muchos traders esta es la manera normal de salir del mercado. Sin embargo, estas salidas crean un inconveniente estadístico debido a que son 2 parámetros más que contribuyen a la “sobreoptimización” (ver el apéndice sobre Optimización). Por eso sustituimos esta manera tradicional de salir del mercado con las salidas verticales.</p>
+<p>For a lot of traders this is the regular way of exiting the market. Nevertheless, these kind of exits create a statistical drawback because they are two more parameters that need to be optimized, contributing to 'overoptimization'. That's why we substitute them with a vertical exit. You can read more about 'overoptimization' in the appendix.</p>
 
-<h2>Salidas verticales.</h2>
+<h2>Vertical exit.</h2>
 
-<p>También la podríamos llamar salida temporal. Simplemente se trata de sustituir los tradicionales Stop Loss y Take Profit por una sola salida después de X cantidad de períodos después de haber entrado al mercado. Es decir, después de una cantidad preestablecida de tiempo se sale del mercado, sea en ganancias o en pérdidas.</p>
+<p>We can also call it a timed exit. It is simply the substitution of the traditional Stop Loss and Take Profit for a unique exit after a certain amount of periods after entering the market. That means that after a prestablished amount of time you exit the market, either with profits or losses.</p>
 
-<p>Se llama salida vertical porque esta es la manera en que se ve en una gráfica:</p>
+<p>It is called a vertical exit because it looks like this in a chart:</p>
 
 <img class="course-image" src="{% static 'courses/images/m01_c05_i02.png' %}"/>
 <br>
 
-<p>Usar una salida vertical no quiere decir que no se deba poner un Stop Loss. Solo que se debe poner a una distancia muy lejana, de manera que solo se active en un caso muy extraordinario donde una noticia inesperada mueva el mercado de manera abrupta: lo que se llama en el mundo de la inversión un “Cisne Negro”.</p>
+<p>Using a vertical exit doesn't mean that you will not use a Stop Loss. But you will put it very far, so it only is triggered in extraordinary moments where an unexpected news moves the market in an abrupt way. This kind of unpredictable movements in the price are called 'Black Swans'.</p>
 
-<p>Se podría pensar que una salida vertical es muy arriesgada, pero quien tiene un poco de experiencia en el mercado sabe que cuando vienen estos “Cisnes Negros” no hay Stop Loss que valga. La volatilidad y el deslizamiento son tan grandes, que los Stop Loss pueden activarse cientos de pips o ticks más allá de lo que el trader estipuló. Por lo tanto, lo más prudente es saber desde un inicio que estas situaciones pueden ocurrir. Y por ello estar preparado invirtiendo en cantidades moderadas y solo contando con el Stop Loss en situaciones extraordinarias.</p>
+<p>You may think that a vertical exit is very risky. But whoever has a little bit of experience in the markets know that when a 'Black Swan' appears the Stop Loss doesn't helps at all. The volatility and the slippage is so big that the Stop Loss may activate hundred of pips or ticks away of the price the trader set. For that reason, the wiser thing to do is to know from the beginning that this situations could happen and therefore be prepared trading moderated amounts of money and only trusting the Stop Loss in extraordinary cases.</p>
 
-<p>Otra ventaja de las salidas verticales es una mayor precisión al momento de hacer una prueba en el pasado (backtesting), ya que es más sencillo tener en cuenta el deslizamiento o slippage.</p>
+<p>Another advantage of the vertical exits is a better backtesting precision because is easier to consider the slippage.</p>
