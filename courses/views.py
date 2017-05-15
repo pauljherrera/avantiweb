@@ -2,10 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.base import TemplateResponseMixin, View
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.db.models import Count
 from django.urls import reverse
+from django.conf import settings
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
+import os
 
 from common.decorators import ajax_required
 from .forms import ModuleFormSet, QuestionForm
@@ -55,6 +57,8 @@ def get_ajax_content(request):
 	profile.module_bookmark = module
 	profile.save()
 
+	print('courses/content/{}_{}.html'.format(course, module))
+
 	return render(request, 'courses/content/{}_{}.html'.format(course, 
 															   module))
 
@@ -74,4 +78,27 @@ def post_question(request):
 	question.save()
 
 	return JsonResponse({'status': 'ok'})
+
+
+@login_required
+def download_indicator(request):
+	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'Knoxville_Divergence.ex4')
+	if os.path.exists(file_path):
+		with open(file_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/octet-stream")
+			response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+
+	return response
+
+
+@login_required
+def download_ea(request):
+	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'SMA_Knoxville.ex4')
+	if os.path.exists(file_path):
+		with open(file_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/octet-stream")
+			response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+
+	return response
+
 

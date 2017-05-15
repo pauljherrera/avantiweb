@@ -20,7 +20,9 @@
 
 <p>The lookback of the divergence is another of the optimizable parameters.</p>
 
-<p>Visually identifying these divergences can be very challenging. The KD indicator shows you automatically the precise moment in which the divergence appears. You can download it <a href="">here</a>.</p>
+<p>Visually identifying these divergences can be very challenging. The KD indicator shows you automatically the precise moment in which the divergence appears. You can download it for MetaTrader 4 <a href="{% url 'courses:download_indicator' %}">here</a>. If you don't know how to install it, you can follow <a href="http://en.tradimo.com/learn/metatrader-4/install-custom-indicator/" target="_blank">this easy tutorial</a>.</p> 
+
+<p><strong>Note:</strong> This downloadable indicator was entirely coded by Avanti. The mathematical formulas used to build it may differ from the Knoxville Divergence indicators you can find in other websites.</p>
 
 <h2>SMA + Knoxville.</h2>
 
@@ -31,18 +33,30 @@
 		For buying: using a 15 minutes chart, wait until the price is above an X periods Simple Moving Average. The second condition is that an X period bullish Knoxville Divergence appears. 
 	</li>
 	<br>
-	<img class="course-image" src="{% static 'courses/images/m01_c04_i01.png' %}"/>
+	<div class="chart">
+		<img class="course-image" src="{% static 'courses/images/m01_c04_i01.png' %}"/>
+		<div class="caption">Buy signal: being the price above the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
+	</div>
 	<br><br>
-	<img class="course-image" src="{% static 'courses/images/m01_c04_i02.png' %}"/>
+	<div class="chart">
+		<img class="course-image" src="{% static 'courses/images/m01_c04_i02.png' %}"/>
+		<div class="caption">SMA + KD buy signal close-up.</div>
+	</div>	
 	<br><br>
 
 	<li>
 		For selling: using a 15 minutes chart, wait until the price is below an X periods Simple Moving Average. The second condition is that an X period bearish Knoxville Divergence appears.
 	</li>
 	<br>
-	<img class="course-image" src="{% static 'courses/images/m01_c04_i03.png' %}"/>
+	<div class="chart">
+		<img class="course-image" src="{% static 'courses/images/m01_c04_i03.png' %}"/>
+		<div class="caption">Sell signal: being the price bellow the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
+	</div>		
 	<br><br>
-	<img class="course-image" src="{% static 'courses/images/m01_c04_i04.png' %}"/>
+	<div class="chart">
+		<img class="course-image" src="{% static 'courses/images/m01_c04_i04.png' %}"/>
+		<div class="caption">SMA + KD sell signal close-up.</div>
+	</div>	
 	<br><br>
 </ol>
  

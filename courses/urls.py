@@ -10,4 +10,6 @@ urlpatterns = [
 	url(r'^ajax/promotion', views.get_ajax_promotion, name='get_promotion'),
 	url(r'^ajax/question', views.post_question, name='post_question'),
 	url(r'^enroll/(?P<course_id>\d+)/$', views.enroll, name='enroll'),
+	url(r'^indicator/$', views.download_indicator, name='download_indicator'),
+	url(r'^ea/$', views.download_ea, name='download_ea'),
 ]
