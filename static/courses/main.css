@@ -391,6 +391,11 @@ a {
 	cursor: pointer;
 }
 
+.inline-image {
+	height: 25px;
+	margin-bottom: -5px;
+}
+
 .chart {
 	display: flex;
 	flex-direction: column;
