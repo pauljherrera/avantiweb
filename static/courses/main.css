@@ -383,12 +383,16 @@ a {
 }
 
 .inline-anchor {
-	color: #707A2C;
+	color: #0066cc;
 	font-weight: bold;
 }
 
 .inline-anchor:hover {
 	cursor: pointer;
+}
+
+.inline-anchor:visited {
+	color: #8e41c5;
 }
 
 .inline-image {
@@ -406,6 +410,24 @@ a {
 	margin-top: -10px;
 	font-size: 16pt;
 	text-align: center;
+}
+
+.portfolio-images{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.portfolio {
+	max-height: 300px;
+	max-width: 400px;
+	margin: 20px;
+}
+
+.profit-curve {
+	max-height: 450px;
+	max-width: 600px;
+	margin: 30px;
 }
 
 @media (max-width: 725px) {

@@ -178,7 +178,8 @@
 
 	$('#next').click(function() {
 		nextCounter = $('.module-selected').data('count') + 1;
-		selector = '.single-module[data-count=' + nextCounter + ']';
+		course = $('.module-selected').data('course');
+		selector = '.single-module[data-count=' + nextCounter + '][data-course=' + course + ']';
 		nextButton = $(selector);
 
 		if (nextButton[0]) {

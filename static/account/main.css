@@ -172,6 +172,15 @@ main{
 	min-width: 400px;
 }
 
+#disclaimer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 200px;
+	margin-top: -40px;
+}
+
 @media (max-width: 805px) {
 	.screen-left {
 		order: 1;
@@ -183,6 +192,11 @@ main{
 
 	.cta {
 		font-size: 18pt;
+	}
+
+	#disclaimer {
+		margin: 0 100px;
+		margin-top: -40px;
 	}
 }
 
@@ -217,6 +231,11 @@ main{
 
 	.screen-bottom .screen-right {
 		padding: 10px;
+	}
+
+	#disclaimer {
+		margin: 0 40px;
+		margin-top: -40px;
 	}
 }
 

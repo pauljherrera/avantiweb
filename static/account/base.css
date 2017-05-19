@@ -114,6 +114,10 @@ span .logo {
 	cursor: pointer;
 }
 
+.login-button {
+	margin: 6px 30px 3px 40px;
+}
+
 .divisor {
 	border-right: 1px solid white;
 	border-left: 1px solid white;
@@ -128,7 +132,6 @@ span .logo {
 
 	.login-button {
 		font-size: 16pt;
-		margin: 6px 0 3px 0;
 		padding: 4px 15px;
 	}
 

@@ -26,8 +26,6 @@
 				<a class='button' href="{% url 'account:logged_out' %}">Logout</a>
 			{% else %}
 				<a class='login-button button' data-type='login'>Login</a>
-				<a class="login-button button" data-type='sign-up'>Sign up</a>
-
 			{% endif %}
 		</div>
 	</header>
@@ -53,13 +51,13 @@
 
 				$('.to-right').each(function() {
 					if (this.offsetTop < viewable) {
-						$(this).animate({left: '0'}, 800);
+						$(this).animate({left: '0'}, 450);
 					}
 				});
 
 				$('.to-left').each(function() {
 					if (this.offsetTop < viewable) {
-						$(this).animate({right: '0'}, 800);
+						$(this).animate({right: '0'}, 550);
 					}
 				});
 			});

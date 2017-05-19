@@ -38,6 +38,9 @@ class CourseListView(LoginRequiredMixin, TemplateResponseMixin, View):
 	template_name = 'courses/strategies.html'
 
 	def get(self, request, subject=None):
+		if not request.user.courses_joined.all():
+			return redirect('courses:plans')
+			
 		courses = Course.objects.annotate(total_modules=Count('modules'))
 		courses_joined = [c.id for c in request.user.courses_joined.all()]
 		form = QuestionForm()

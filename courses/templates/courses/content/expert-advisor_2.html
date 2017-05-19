@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<p>After you familiarize yourself with the EA, things can turn boring. He does almost everything. But there is a lot of field for improvement. </p>
+
+<p>We have talked about it before, and we won't get tired of repeating it: don't trust just one trading strategy! At Avanti, we make a very serious effort to generate trustworthy strategies using the top computational and statistical tools available. And nonetheless, we have to warn you. You must learn more strategies. You need to diversify.</p>
+
+<h2>What is diversification anyway?</h2>
+
+<p>Diversification is the technique of lessening the risks by dividing our capital among many strategies, markets or timeframes. How does it reduce risks? Let's see it by an example.</p>
+
+<p>Below you will see the profit curve of four different implementations of the SMA + Knoxville strategy. These implementations belong to the Avanti's complete portfolio.</p>
+
+<br>
+
+<div class="portfolio-images">
+	<img class="course-image portfolio" src="{% static 'courses/images/m02_c02_i01.png' %}"/>
+	<img class="course-image portfolio" src="{% static 'courses/images/m02_c02_i02.png' %}"/>
+	<img class="course-image portfolio" src="{% static 'courses/images/m02_c02_i03.png' %}"/>
+	<img class="course-image portfolio" src="{% static 'courses/images/m02_c02_i04.png' %}"/>
+</div>
+
+<br>
+
+<p>As you can see, each profit curve has its own 'personality'. They behave differently. That's because, if you read with attention the title of each chart, you will see that there are six currencies involved, two timeframes and two kinds of operations (buy-only and sell-only).</p>
+
+<p> The magic happens when we invest using all these strategies at the same time. Just watch the profit curve:</p>
+
+<img class="course-image profit-curve" src="{% static 'courses/images/m02_c02_i05.png' %}"/>
+
+<p>There you see a better-behaved curve that sums the profits of the previous charts and is a lot less volatile at the same time. That is, more profits with less risk!</p>
+
+<p>Finally, let's see the profit curve of a portfolio of thirteen variations of the SMA + Knoxville strategy.</p>
+
+<img class="course-image profit-curve" src="{% static 'courses/images/m02_c02_i06.png' %}"/>
+
+<p>This curve is even more stable and less volatile. Do you want a profit curve like this one? Get the <span class="cp-click inline-anchor">complete portfolio</span> now.</p>
+
+<script type="text/javascript">
+	$('.cp-click').click(function() {
+		$('[data-course="complete-portfolio"]').trigger('click');
+	});
+</script>
