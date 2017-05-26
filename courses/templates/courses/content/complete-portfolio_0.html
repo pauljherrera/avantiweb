@@ -1,11 +1,11 @@
 {% load staticfiles %}
 
-<p>By now, you almost can intuitively implement the complete portfolio just by reading the parameters for each variation of the strategy. If you don't recall something, go to 'The Strategy' or 'Expert Advisor' section. Nevertheless, there are some instructions and recommendations that you need to know.</p>
+<p>By now, you can almost intuitively implement the complete portfolio just by reading the parameters for each variation of the strategy. If you don't recall something, you can go to 'The Strategy' or 'Expert Advisor' section. Nevertheless, there are some instructions and recommendations that you need to know.</p>
 
 <ul>
-	<li>The portfolio has some <strong>reversed</strong> strategies. When you have a reversed strategy, you have to sell where normally you would buy and vice-versa. Why does this happen? Remember that we don't use, for example, a buy-only strategy because 'we think that maybe this strategy would be profitable'. It is the data analysis that says 'this is a profitable buy-only strategy'. Sometimes the market conditions change so dramatically that the data analysis says 'what before was a good buy-only strategy it's now a profitable sell-only strategy'. So we can keep following the same instructions for that strategy, but we start to buy where we use to sell and vice-versa.</li>
+	<li>The portfolio has some <strong>reversed</strong> strategies. When you have a reversed strategy, you have to sell where normally you would buy and vice-versa. Why does this happen? Remember that we don't use, for example, a buy-only strategy because 'we think that maybe this strategy would be profitable'. It is the data analysis results that say 'this is a profitable buy-only strategy'. Sometimes the market conditions change so dramatically that the data analysis states 'what before was a good buy-only strategy it's now a profitable sell-only strategy'. So we can keep following the same instructions for that strategy, but we start to buy where we use to sell and vice-versa.</li>
 	<br>
-	<li>The EA has a 'reverse' option among the input variables inside the 'Properties' window. Just turn it to 'true' and the EA will know that the strategy must be reversed.</li>
+	<li>The EA has a 'reverse' option. You can find it among the input variables in the 'Properties' window. Just turn it to 'true' and the EA will know that the strategy must be reversed.</li>
 </ul>
 
 <br>
@@ -15,9 +15,9 @@
 <br>
 
 <ul>
-	<li>Turn the 'AutoTrading' button off if it's necessary <img class="inline-image" src="{% static 'courses/images/m03_c00_i02.png' %}" />. It will prevent all the EAs to place any order. This is especially useful when a big fundamental new is about to come out (i.e. NFP or Interest Rates).</li>
+	<li>Turn the 'AutoTrading' button off if it's necessary <img class="inline-image" src="{% static 'courses/images/m03_c00_i02.png' %}" />. It will prevent all the EAs to place any order. This is especially useful when a big fundamental new is about to come out (i.e. NFP or central banks' interest rates).</li>
 	<br>
-	<li>Remember that you need a different chart for each EA. If you have two EAs that operate in the same currency pair and the same timeframe, you still need to open two charts.</li>
+	<li>Remember that you need a different chart for each EA. If you have two EAs that operate in the same currency pair and timeframe, you still need to open two charts.</li>
 </ul>
 
 

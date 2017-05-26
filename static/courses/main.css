@@ -430,6 +430,20 @@ a {
 	margin: 30px;
 }
 
+.divisor {
+	border-bottom: 1px solid #707A2C;
+	width: 100%;
+	margin-top: 22px;
+}
+
+.next-cover{
+	width: 100%;
+	min-height: 100px;
+	margin-bottom: -100px;
+	background-color: white;
+	z-index: 4;
+}
+
 @media (max-width: 725px) {
 	header .button {
 		font-size: 14pt;
