@@ -11,6 +11,12 @@
 	<link href="{% static 'orders/create.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% block pixel_track %}
+	<script>
+		fbq('track', 'InitiateCheckout');
+	</script>
+{% endblock_track %}
+
 {% block content %}
 	<main>
 		<div id="blank-space"></div>

@@ -10,7 +10,33 @@
 	<link rel="shortcut icon" type='image/png' href="{% static 'account/images/favicon.png' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Avanti Financial Services uses statistics, artificial intelligence and coding to develop Forex trading strategies that anyone can use.">
+	{% block pixel_base %}
+		<!-- Facebook Pixel Code -->
+		<script>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+		document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '1883194888560446'); // Insert your pixel ID here.
+		fbq('track', 'PageView');
+		</script>
+		<noscript><img height="1" width="1" style="display:none"
+		src="https://www.facebook.com/tr?id=1883194888560446&ev=PageView&noscript=1"
+		/></noscript>
+		<!-- DO NOT MODIFY -->
+		<!-- End Facebook Pixel Code -->
+	{% endblock_base %}
 </head>
+{% block pixel_track %}
+<script>
+	fbq('track', 'ViewContent', {
+		content_type: 'main_page'
+		value: 0.00,
+		currency: 'USD'
+	});
+</script>
+{% endblock_track %}
 <body>
 	<header>
 		<span class="logo"><a href="{% url 'main' %}"><img src="{% static 'account/images/logo.png' %}" alt="Logo" class="logo" height="70" /></a></span>
