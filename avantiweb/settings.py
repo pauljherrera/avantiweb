@@ -31,6 +31,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'avantifs.pythonanywhere.com',
     'avantifs.herokuapp.com',
+    'avantifs.com',
+    'www.avantifs.com',
 ]
 
 
