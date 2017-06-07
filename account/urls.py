@@ -20,4 +20,5 @@ urlpatterns = [
 	url(r'^password-reset/complete/$', v.password_reset_complete, 
 		name='password_reset_complete'),
 	url(r'^register/$', views.register, name='register'),
+	url(r'^terms/$', views.terms, name='terms'),
 ]

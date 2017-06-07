@@ -75,6 +75,25 @@ img {
 	margin-bottom: 35px;
 }
 
+.choose-button {
+	background: #a7bd43;
+	background-image: linear-gradient(to bottom, #a7bd43, #707A2C);
+	border-radius: 1px;
+	font-family: ClearSans-Regular;
+	color: #ffffff;
+	font-size: 20pt;
+	line-height: 100%;
+	margin-top: 25px;
+	margin-bottom: 35px;
+	padding: 10px 10px;
+}
+
+.choose-button:hover {
+	background: #ccd658;
+	background-image: linear-gradient(to bottom, #ccd658, #a6ad47);
+	cursor: pointer;
+}
+
 .top-icon {
 	padding-bottom: 0;
 	padding-top: 40px;
@@ -124,6 +143,10 @@ img {
 	}
 
 	.button {
+		font-size: 16pt;
+	}
+
+	.choose-button {
 		font-size: 16pt;
 	}
 }
@@ -194,6 +217,11 @@ img {
 		margin-left: 4px;
 		margin-right: 4px;
 	}
+
+	.choose-button {
+		margin-left: 4px;
+		margin-right: 4px;
+	}
 }
 
 @media (max-width: 450px) {
@@ -218,6 +246,10 @@ img {
 	.button {
 		font-size: 14pt;
 	}
+
+	.choose-button {
+		font-size: 14pt;
+	}
 }
 
 @media (max-width: 390px) {
@@ -238,12 +270,23 @@ img {
 		font-size: 13pt;
 	}
 
+	.choose-button {
+		font-size: 12pt;
+	}
+
 	.plan-head {
 	    font-size: 13pt;
 	}
 
 	.yes-no-icon {
 		height: 20px;
+	}
+}
+
+@media (max-width: 340px) {
+	.choose-button {
+		padding-left: 3px;
+		padding-right: 3px;
 	}
 }
 

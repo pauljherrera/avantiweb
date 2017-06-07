@@ -5,12 +5,12 @@ main {
 	color: white;
 }
 
-.login {
-	display: none;
-}
-
 header {
 	justify-content: center;
+}
+
+.login {
+	display: none;
 }
 
 .header-menu {
