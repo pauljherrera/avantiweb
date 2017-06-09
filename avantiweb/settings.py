@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(^8-vf((s3)w&pr1hjhpr!plmci3)wmz$nssljh%7xiqgab-an'
+SECRET_KEY = os.environ['AVANTIFS_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ['AVANTIFS_DEBUG']
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -98,16 +98,7 @@ WSGI_APPLICATION = 'avantiweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'avantiweb',
-        'USER': 'postgres',
-        'PASSWORD': 'wwwpaul26N',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+DATABASES = {}
 
 # DATABASES = {
 #     'default': {
