@@ -133,15 +133,15 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Social authentication.
-SOCIAL_AUTH_FACEBOOK_KEY = '786783441478582'
-SOCIAL_AUTH_FACEBOOK_SECRET = '0efea425710118ffe8bb9b681ad51c7e'
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ['AVANTIFS_SOCIAL_AUTH_FACEBOOK_KEY']
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['AVANTIFS_SOCIAL_AUTH_FACEBOOK_SECRET']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id,name,email', 
 }
 FACEBOOK_AUTH_EXTRA_ARGUMENTS = {'display': 'touch'}
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '9527708810-958cj6b0sk63pkjhcpokfcc3v35ur2d3.apps.googleusercontent.com' 
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='bmtnJ5jcgHaGSwBagUjO2yqH'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['AVANTIFS_SOCIAL_AUTH_GOOGLE_OAUTH2_KEY']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['AVANTIFS_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET']
 
 SOCIAL_AUTH_SLUGIFY_USERNAMES = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
@@ -253,7 +253,7 @@ REST_FRAMEWORK = {
 
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
-db_from_env = dj_database_url.config(default='postgres://utrarpvfuisuqt:0b51c1aa05ab2a2130a92d205204c508aedea288b7ea5efd51119137ce9075c3@ec2-54-235-153-124.compute-1.amazonaws.com:5432/dbb20dl9q4ashi', 
+db_from_env = dj_database_url.config(default=os.environ['AVANTIFS_DATABASE_URL'], 
                                      conn_max_age=200)
 DATABASES['default'].update(db_from_env)
 
