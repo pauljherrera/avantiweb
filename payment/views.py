@@ -56,6 +56,7 @@ def payment_done(request):
 	print(request.session)
 	return render(request, 'payment/done.html')
 
+
 @ajax_required
 def payment_check(request):
 	# Checking if the last order was already paid.
@@ -83,7 +84,7 @@ def payment_notification(request):
 	data += request.body
 
 	# Posting verification.
-	verification = requests.post('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr', data=data)
+	verification = requests.post('https://ipnpb.paypal.com/cgi-bin/webscr', data=data)
 	print(verification.text)
 
 	#Checking verification
