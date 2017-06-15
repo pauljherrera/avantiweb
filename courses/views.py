@@ -6,6 +6,7 @@ from django.http import JsonResponse, HttpResponse
 from django.db.models import Count
 from django.urls import reverse
 from django.conf import settings
+from django.core.mail import send_mail
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 import os
 
@@ -80,11 +81,17 @@ def post_question(request):
 						 owner=request.user)
 	question.save()
 
+	# Sending email to client-support.
+	send_mail('Answer to your question', 
+			  'Usuario: {} \nPregunta: {}'.format(request.user.username, request.POST.get('question')),
+			  request.user.email,
+			  ['services@avantifs.com'])
+
 	return JsonResponse({'status': 'ok'})
 
 
 @login_required
-def download_indicator(request):
+def download_indicator_mt4(request):
 	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'Knoxville_Divergence.ex4')
 	if os.path.exists(file_path):
 		with open(file_path, 'rb') as fh:
@@ -95,8 +102,30 @@ def download_indicator(request):
 
 
 @login_required
-def download_ea(request):
+def download_indicator_ctrader(request):
+	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'Knoxville_Divergence.algo')
+	if os.path.exists(file_path):
+		with open(file_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/octet-stream")
+			response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+
+	return response
+
+
+@login_required
+def download_ea_mt4(request):
 	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'SMA_Knoxville.ex4')
+	if os.path.exists(file_path):
+		with open(file_path, 'rb') as fh:
+			response = HttpResponse(fh.read(), content_type="application/octet-stream")
+			response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+
+	return response
+
+
+@login_required
+def download_ea_ctrader(request):
+	file_path = os.path.join(settings.PROJECT_ROOT, 'static/courses/files', 'SMA_Knoxville.algo')
 	if os.path.exists(file_path):
 		with open(file_path, 'rb') as fh:
 			response = HttpResponse(fh.read(), content_type="application/octet-stream")

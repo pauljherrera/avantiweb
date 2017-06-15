@@ -5,6 +5,7 @@
 
 {% block style %}
 	{{ block.super }}
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 	<link href="{% static 'account/main.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -17,11 +18,9 @@
 			</div>
 			<div class="screen-bottom">
 				<div class="screen-left">
-					<span>
-						<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main.png' %}">
-					</span>
+					<div id="chart01" class="ct-chart ct-major-third"></div>
 					<span id="chart-main-title" class="centered-text">
-						Profits for the complete portfolio of strategies
+						Actual profits for the complete AVANTI portfolio of strategies (in pips)
 					</span>
 				</div>
 				<div class="screen-right">
@@ -57,25 +56,25 @@
 				</a>
 			</div>
 			<div class="screen-left to-left">
-				<span>
-					<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main-white.png' %}">
-				</span>
+				<div id="chart02" class="ct-chart ct-major-third"></div>
 				<span id="chart-main-title" class="centered-text">
-					Profits of the free strategy.
+					Actual profits of the free strategy (in pips)
 				</span>
 			</div>
+
 		</div>
 		<div id="third-screen" class="screen no-main-screen">
 			<div class="screen-left">
-				<span class="to-right">
-					<img id="chart-main" class="image-fit ea-icon" src="{% static 'account/images/icon-ea.png' %}">
+				<span class="to-right ea-icon-holder">
+					<img class="image-fit ea-icon" src="{% static 'account/images/metatrader.png' %}">
+					<img class="image-fit ea-icon" src="{% static 'account/images/ctrader.png' %}">
 				</span>
 			</div>
 			<div class="screen-right to-left">
 				<span class="centered-text marginalized dark-font pre-cta-text">
 					The Expert Advisor let's you trade automatically.
 					<br><br>
-					It's not just about convenience. It's about precision, avoid human error and never ever lose a trade.
+					It's not just about convenience. It's about precision. Avoid human error and never ever lose a trade.
 					<br><br>
 					Essential for the trader who manages several trading strategies.
 					<br><br>
@@ -88,7 +87,7 @@
 		<div id="fourth-screen" class="screen no-main-screen">
 			<div class="screen-right to-right">
 				<span class="centered-text marginalized dark-font pre-cta-text">
-					Professional traders never put all his capital in just one timeframe, pair or strategy.
+					Professional traders never put all their capital in just one timeframe, pair or strategy.
 					<br><br>
 					A collection of strategies lets you avoid risks while increasing your potential profits.
 					<br><br>
@@ -100,9 +99,7 @@
 				</a>
 			</div>
 			<div class="screen-left to-left">
-				<span>
-					<img id="chart-main" class="image-fit" src="{% static 'account/images/chart-main-white.png' %}">
-				</span>
+				<div id="chart03" class="ct-chart ct-major-third"></div>
 				<span id="chart-main-title" class="centered-text">
 					Profits of the complete portfolio.
 				</span>
@@ -119,6 +116,12 @@
 	{% block pop-up %}
 	{% endblock %}
 
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+	<script src="{% static '/account/js/main.js' %}"></script>
 {% endblock %}
 
 

@@ -1,8 +1,8 @@
 {% load staticfiles %}
 
-<p>By now, we won't say the exact parameters of the strategy. You will see an 'X' in its place. These parameters are optimizable. That means they change from time to time so they can adapt to the actual market conditions. The strategy you are about to learn is optimized every nine months. If you want to know more about what 'optimization' means you can go to the appendix.</p>
+<p>For now, we won't say the exact parameters of the strategy. You will see an 'X' in its place. These parameters are optimizable. That means they change from time to time so they can adapt to the actual market conditions. The strategy you are about to learn is optimized every nine months. If you want to know more about what 'optimization' means you can go to the appendix.</p>
 
-<p>The strategy's exact values appear in the 'Parameters' section. In that chapter, you will also know in which currency pairs you can trade this strategy.</p>
+<p>The strategy's exact values appear in the 'Parameters' section. In that chapter, you will also learn in which currency pairs you can trade this strategy.</p>
 
 <h2>Trend beginning.</h2>
 
@@ -14,13 +14,13 @@
 
 <p>The retracement will be measured by an indicator named 'Knoxville Divergence' -DK from now on-. </p>
 
-<p>The DK is an indicator created by Rob Booker, an American trader with a long trajectory. At the same time, this indicator is built by the union of two indicators created by Welles Wilder, one of the most prominent technical analysts of the past century.</p>
+<p>The DK is an indicator created by Rob Booker, an American trader with a long trajectory. At the same time, this indicator is built by combining two indicators created by Welles Wilder, one of the most prominent technical analysts of the past century.</p>
 
-<p>The two indicators used to built the DK are the Relative Strength Index (RSI) and the Momentum Oscillator, two of the most used indicators among traders. If you want to know in detail how this indicator is built you can go to the appendix. We highly recommend that you learn how every indicator you use work.</p>
+<p>The two indicators used to built the DK are the Relative Strength Index (RSI) and the Momentum Oscillator, two of the most used indicators among traders. If you want to know in detail how this indicator is built you can go to the appendix. We highly recommend that you learn how every indicator you use works.</p>
 
 <p>The lookback of the divergence is another of the optimizable parameters.</p>
 
-<p>Visually identifying these divergences can be very challenging. The KD indicator shows you automatically the precise moment in which the divergence appears. You can download it for MetaTrader 4 <a href="{% url 'courses:download_indicator' %}">here</a>. If you don't know how to install it, you can follow <a href="http://en.tradimo.com/learn/metatrader-4/install-custom-indicator/" target="_blank">this easy tutorial</a>.</p> 
+<p>Visually identifying these divergences can be very challenging. The KD indicator shows you automatically the precise moment in which the divergence appears. You can download it for <a href="{% url 'courses:download_indicator_mt4' %}">MetaTrader 4</a> or <a href="{% url 'courses:download_indicator_ctrader' %}">cTrader</a>. If you don't know how to install it, here's an easy tutorial for <a href="http://en.tradimo.com/learn/metatrader-4/install-custom-indicator/" target="_blank">MetaTrader 4</a> and here's the official guide for <a href="http://help.spotware.com/charts/indicators#custom" target="_blank">cTrader</a>.</p> 
 
 <p><strong>Note:</strong> This downloadable indicator was entirely coded by Avanti. The mathematical formulas used to build it may differ from the Knoxville Divergence indicators you can find in other websites.</p>
 
@@ -35,7 +35,7 @@
 	<br>
 	<div class="chart">
 		<img class="course-image" src="{% static 'courses/images/m01_c04_i01.png' %}"/>
-		<div class="caption">Buy signal: being the price above the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
+		<div class="caption">Buy signal: since the price is above the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
 	</div>
 	<br><br>
 	<div class="chart">
@@ -50,7 +50,7 @@
 	<br>
 	<div class="chart">
 		<img class="course-image" src="{% static 'courses/images/m01_c04_i03.png' %}"/>
-		<div class="caption">Sell signal: being the price bellow the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
+		<div class="caption">Sell signal: since the price is bellow the SMA, the first arrow of the Knoxville Divergence indicator indicates the entry point.</div>
 	</div>		
 	<br><br>
 	<div class="chart">

@@ -10,6 +10,8 @@ urlpatterns = [
 	url(r'^ajax/promotion', views.get_ajax_promotion, name='get_promotion'),
 	url(r'^ajax/question', views.post_question, name='post_question'),
 	url(r'^enroll/(?P<course_id>\d+)/$', views.enroll, name='enroll'),
-	url(r'^indicator/$', views.download_indicator, name='download_indicator'),
-	url(r'^ea/$', views.download_ea, name='download_ea'),
+	url(r'^indicator_mt4/$', views.download_indicator_mt4, name='download_indicator_mt4'),
+	url(r'^indicator_ctrader/$', views.download_indicator_ctrader, name='download_indicator_ctrader'),
+	url(r'^ea_mt4/$', views.download_ea_mt4, name='download_ea_mt4'),
+	url(r'^ea_ctrader/$', views.download_ea_ctrader, name='download_ea_ctrader'),
 ]

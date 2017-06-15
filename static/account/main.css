@@ -25,7 +25,7 @@ main{
 	display: flex;
 	flex: 1;
 	justify-content: center;
-	padding-top: 30px;
+	padding-top: 15px;
 }
 
 .screen-bottom {
@@ -33,7 +33,7 @@ main{
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	padding: 20px;
+	padding: 20px 40px;
 	padding-top: 0px;
 	margin-top: -15px;
 }
@@ -133,6 +133,15 @@ main{
 	background-color: black;
 }
 
+#second-screen .screen-left,
+#fourth-screen .screen-left {
+	padding: 10px 40px;
+}
+
+#third-screen .screen-left {
+	padding-top: 30px;
+}
+
 .screen-right span{
 	display: flex;
 	justify-content: center;
@@ -168,8 +177,15 @@ main{
 	padding: 10px 30px 15px 30px;
 }
 
+.ea-icon-holder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 90%;
+}
+
 .ea-icon {
-	min-width: 400px;
+	min-width: 300px;
 }
 
 #disclaimer {
@@ -180,6 +196,40 @@ main{
 	margin: 0px 200px;
 	margin-top: -40px;
 }
+
+.ct-series-a .ct-line,
+.ct-series-a .ct-point  {
+	stroke: #a7bd43 !important;
+	stroke-width: 6px !important;
+}
+
+#chart02 .ct-line,
+#chart02 .ct-point {
+	stroke: white !important;
+	stroke-width: 6px !important;
+}
+
+#chart03 .ct-line,
+#chart03 .ct-point {
+	stroke: white !important;
+	stroke-width: 6px !important;
+}
+
+.ct-horizontal{
+	display: none;
+}
+
+.ct-vertical{
+	stroke: white;
+	opacity: 0.5;
+}
+
+.ct-label {
+	color: white;
+	opacity: 1;
+	font-size: 12pt;
+}
+
 
 @media (max-width: 805px) {
 	.screen-left {
@@ -206,7 +256,7 @@ main{
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 625px) {
 	#blank-space {
 		display: none;
 	}
@@ -236,6 +286,47 @@ main{
 	#disclaimer {
 		margin: 0 40px;
 		margin-top: -40px;
+	}
+}
+
+@media (max-width: 500px) {
+	.screen-bottom {
+		padding: 10px 5px;
+	}
+
+	.ct-label {
+		font-size: 10pt;
+	}
+
+	#second-screen .screen-left, 
+	#fourth-screen .screen-left {
+		padding: 10px 8px;
+	}
+
+	#disclaimer {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 411px) {
+	#main-motto {
+		font-size: 20pt;
+		margin-bottom: 0;
+	}
+}
+
+@media (max-width: 360px) {
+	.pre-cta-text {
+		font-size: 15pt;
+	}
+
+	#disclaimer {
+		margin: 0 20px;
+	}
+
+	#disclaimer p {
+		font-size: 16pt;
+		margin-top: 0;
 	}
 }
 

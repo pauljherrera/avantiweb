@@ -201,9 +201,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 #Configuration for sending emails.
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pauljherrera@gmail.com'
-EMAIL_HOST_PASSWORD = 'wwwpaul26N'
+EMAIL_HOST = 'smtp.1and1.com'
+EMAIL_HOST_USER = 'services@avantifs.com'
+EMAIL_HOST_PASSWORD = os.environ['AVANTIFS_EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

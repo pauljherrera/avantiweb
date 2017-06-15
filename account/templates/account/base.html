@@ -28,15 +28,17 @@
 		<!-- End Facebook Pixel Code -->
 	{% endblock %}
 </head>
+
 {% block pixel_track %}
-<script>
-	fbq('track', 'ViewContent', {
-		content_type: 'main_page'
-		value: 0.00,
-		currency: 'USD'
-	});
-</script>
+	<script>
+		fbq('track', 'ViewContent', {
+			content_type: 'main_page',
+			value: 0.00,
+			currency: 'USD'
+		});
+	</script>
 {% endblock %}
+
 <body>
 	<header>
 		<span class="logo"><a href="{% url 'main' %}"><img src="{% static 'account/images/logo.png' %}" alt="Logo" class="logo" height="70" /></a></span>
@@ -67,60 +69,7 @@
 	<script>
 		$(document).ready(function(){
 			{% block domready %}
-			{% endblock %}
-
-			var headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
-			
-			window.addEventListener('scroll', function() {
-
-				var viewable = $(document).scrollTop() + window.innerHeight - 200;
-
-				$('.to-right').each(function() {
-					if (this.offsetTop < viewable) {
-						$(this).animate({left: '0'}, 450);
-					}
-				});
-
-				$('.to-left').each(function() {
-					if (this.offsetTop < viewable) {
-						$(this).animate({right: '0'}, 550);
-					}
-				});
-			});
-
-			$('#free-strategy').click(function() {
-				var screenOffset = document.getElementById('second-screen').offsetTop;
-
-				if (document.getElementById('blank-space').offsetHeight === 0) {
-					headerHeight = 0;
-				}
-
-				$('html, body').animate({
-			        scrollTop: screenOffset - headerHeight
-			    }, 300, 'swing');
-			});
-			$('#expert-advisor').click(function() {
-				var screenOffset = document.getElementById('third-screen').offsetTop;
-
-				if (document.getElementById('blank-space').offsetHeight === 0) {
-					headerHeight = 0;
-				}
-
-				$('html, body').animate({
-			        scrollTop: screenOffset - headerHeight
-			    }, 500, 'swing');
-			});
-			$('#complete-portfolio').click(function() {
-				var screenOffset = document.getElementById('fourth-screen').offsetTop;
-
-				if (document.getElementById('blank-space').offsetHeight === 0) {
-					headerHeight = 0;
-				}
-
-				$('html, body').animate({
-			        scrollTop: screenOffset - headerHeight
-			    }, 700, 'swing');
-			});
+			{% endblock %}			
 		});
 	</script>
 </body>
