@@ -23,17 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['AVANTIFS_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #bool(os.environ['AVANTIFS_DEBUG'])
+DEBUG = bool(os.environ['AVANTIFS_DEBUG'])
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '0de3900b.ngrok.io',
-    '127.0.0.1',
-    'avantifs.pythonanywhere.com',
-    'avantifs.herokuapp.com',
-    'avantifs.com',
-    'www.avantifs.com',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
