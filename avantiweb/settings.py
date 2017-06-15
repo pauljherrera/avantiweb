@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['AVANTIFS_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ['AVANTIFS_DEBUG'])
+DEBUG = False #bool(os.environ['AVANTIFS_DEBUG'])
 
 ALLOWED_HOSTS = [
     'localhost',
