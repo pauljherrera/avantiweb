@@ -123,7 +123,7 @@ $(document).ready(function(){
 
 	var charts = [chart01, chart02, chart03]
 
-	var seq = 0, delays = 20, durations = 900;
+	var seq = 0, delays = 28, durations = 1400;
 	chart01.on('created', function() {
   		seq = 0;
 	});
