@@ -13,10 +13,16 @@
 	src: url('fonts/ClearSans-Regular.ttf'); 
 } 
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	background-color: black;
 	margin: 0;
 	font-family: ClearSans;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 header{
@@ -25,6 +31,7 @@ header{
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
+	align-items: center;
 	background-color: black;
 	padding-top: 2px;
 	padding-bottom: 5px;
@@ -45,20 +52,27 @@ a {
 
 span .logo {
 	margin-top: 5px;
-	margin-left: 35px;
+	margin-left: 15px;
+	align-self: center;
 }
 
 .header-menu {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 	color: white;
 	font-family: ClearSans;
-	font-size: 16pt;
+	font-size: 14pt;
+	padding: 15px;
 }
 
 .header-menu:hover {
 	cursor: pointer;
+}
+
+.header-option {
+	text-align: center;
 }
 
 .login {
@@ -76,14 +90,17 @@ span .logo {
 	-webkit-border-radius: 1;
 	-moz-border-radius: 1;
 	border-radius: 1px;
-	font-family: ClearSans-Medium;
+	font-family: ClearSans-Regular;
 	color: #ffffff;
-	font-size: 20pt;
-	padding: 8px 20px 8px 20px;
+	font-size: 18pt;
+	padding: 7px 15px 7px 15px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: -3px;
 	text-decoration: none;
+	display: flex;
+	align-items: center;
+	text-align: center;
 }
 
 .button:hover{
@@ -97,8 +114,90 @@ span .logo {
 	cursor: pointer;
 }
 
-.divisor {
-	border-right: 2px solid white;
+.login-button {
+	margin: 6px 30px 3px 40px;
 }
 
+.divisor {
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+}
 
+@media (max-width: 1200px) {
+	.login {
+		flex-direction: column;
+		margin-right: 6px;
+		align-items: center;
+	}
+
+	.login-button {
+		font-size: 16pt;
+		padding: 4px 15px;
+	}
+
+}
+
+@media (max-width: 755px) {
+	.header-option {
+		width: 90%;
+	}
+}	
+
+@media (max-width: 675px) {
+	h2 {
+		font-size: 1.3em;
+	}	
+}
+
+@media (max-width: 625px) {
+	header {
+		flex-flow: column;
+		align-items: center;
+		position: relative;
+	}
+
+	#blank-space {
+		display: none;
+	}
+
+	.logo {
+		margin: 8px;
+	}
+
+	.header-menu {
+		padding: 0;
+	}
+
+	.divisor {
+		border-right: 0px solid white;
+		border-left: 0px solid white;
+		border-top: 1px solid white;
+		border-bottom: 1px solid white;
+		padding: 3px
+	}
+
+	.login {
+		flex-direction: row;
+		margin: 6px;
+		align-items: center;
+		justify-content: space-around;
+		width: 90%;
+		padding-bottom: 0;
+	}
+	.login-button {
+		margin: 10px 5px;
+	}
+}
+
+@media (max-height: 600px) {
+	header {
+		position: relative;
+	}
+
+	#blank-space {
+		display: none;
+	}
+
+@-ms-viewport{
+  width: device-width;
+}

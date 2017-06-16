@@ -16,12 +16,12 @@ a {
 
 h2 {
 	font-family: Oswald;
-	font-size: 50pt;
+	font-size: 40pt;
 	font-weight: normal;
 	border-bottom: 1px solid white;
 	width: 65%;
 	margin-left: 3vw;
-	margin-top: 30px;
+	margin-top: 25px;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 	text-align: center;
@@ -38,14 +38,14 @@ th {
 	font-family: ClearSans-Regular;
 	font-weight: normal;
 	padding: 5px;
-	text-align: right;
+	text-align: left;
 }
 
 td {
 	border: 1px solid white;
 	padding: 5px;
 	text-align: center;
-	font-size: 24pt;
+	font-size: 22pt;
 }
 
 img {
@@ -54,7 +54,7 @@ img {
 
 .plan-head {
 	text-align: center;
-	font-size: 26pt;
+	font-size: 22pt;
 	margin-top: 0;
 	padding-top: 0;
 	padding-bottom: 85px;
@@ -66,13 +66,32 @@ img {
 
 .t-price {
 	font-family: ClearSans-Regular;
-	font-size: 36pt;
+	font-size: 32pt;
 	font-weight: normal;
 }
 
 .plan-button {
 	margin-top: 25px;
 	margin-bottom: 35px;
+}
+
+.choose-button {
+	background: #a7bd43;
+	background-image: linear-gradient(to bottom, #a7bd43, #707A2C);
+	border-radius: 1px;
+	font-family: ClearSans-Regular;
+	color: #ffffff;
+	font-size: 20pt;
+	line-height: 100%;
+	margin-top: 25px;
+	margin-bottom: 35px;
+	padding: 10px 10px;
+}
+
+.choose-button:hover {
+	background: #ccd658;
+	background-image: linear-gradient(to bottom, #ccd658, #a6ad47);
+	cursor: pointer;
 }
 
 .top-icon {
@@ -91,5 +110,183 @@ img {
 
 #blank-space {
 	width: 100%;
-	height: 105px;
+	height: 94px;
 }
+
+.yes-no-icon {
+	height: 30px;
+}
+
+@media (max-width: 1200px) {
+	.plan-head {
+	    font-size: 20pt;
+	}
+}
+
+@media (max-width: 900px) {
+	.plan-head {
+	    font-size: 18pt;
+	}
+
+	table {
+		margin-left: 0;
+		width: 98%;
+	}
+
+	th {
+		padding-left: 0;
+		font-size: 16pt;
+	}
+
+	td {
+		padding: 0;
+	}
+
+	.button {
+		font-size: 16pt;
+	}
+
+	.choose-button {
+		font-size: 16pt;
+	}
+}
+
+@media (max-width: 825px) {
+	.plan-head {
+	    font-size: 16pt;
+	    padding-bottom: 45px;
+	}
+
+	th {
+		font-size: 15pt;
+	}
+
+	.t-price {
+		font-size: 26pt;
+	}
+
+	.top-icon {
+		padding-top: 25px;
+	}
+}
+
+@media (max-width: 750px) {
+	table {
+		border-spacing: 20px 0px;
+	}
+}
+
+@media (max-width: 670px) {
+	.fifth-column {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	header .button {
+		display: none;
+		margin: -30px;
+	}
+
+	.logo {
+		margin: 0;
+	}
+}
+
+@media (max-width: 565px) {
+	table {
+		border-spacing: 5px 0px;
+		width: 100%;
+	}
+
+	.yes-no-icon {
+		height: 25px;
+	}
+}
+
+@media (max-width: 520px) {
+	th {
+		font-size: 13pt;
+	}
+
+	td {
+		font-size: 18pt;
+	}
+
+	.button {
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+
+	.choose-button {
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+}
+
+@media (max-width: 450px) {
+	h2 {
+		font-size: 32pt;
+		padding-bottom: 5px;
+	}
+
+	th {
+		font-size: 11pt;
+	}
+
+	.t-price {
+		font-size: 22pt;
+	}
+
+	.plan-head {
+	    font-size: 14pt;
+	    padding-bottom: 45px;
+	}
+
+	.button {
+		font-size: 14pt;
+	}
+
+	.choose-button {
+		font-size: 14pt;
+	}
+}
+
+@media (max-width: 390px) {
+	table {
+		border-spacing: 2px 0px;
+	}
+
+	th {
+		font-size: 10pt;
+		padding-right: 1px;
+	}
+
+	td {
+		font-size: 16pt;
+	}
+
+	.button {
+		font-size: 13pt;
+	}
+
+	.choose-button {
+		font-size: 12pt;
+	}
+
+	.plan-head {
+	    font-size: 13pt;
+	}
+
+	.yes-no-icon {
+		height: 20px;
+	}
+}
+
+@media (max-width: 340px) {
+	.choose-button {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+}
+

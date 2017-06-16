@@ -5,6 +5,10 @@ main {
 	color: white;
 }
 
+header {
+	justify-content: center;
+}
+
 .login {
 	display: none;
 }
@@ -13,43 +17,101 @@ main {
 	display: none;
 }
 
-header {
-	justify-content: center;
-}
-
 h1 {
+	font-size: 24pt;
 	color: #a7bd43;
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	font-size: 24pt;
+	font-size: 17pt;
 }
 
 p {
 	display: flex;
 	justify-content: space-between;
+	margin: 20px;
 }
 
 .button {
 	text-align: center;
 	flex-grow: 1;
+	margin: 0 40px;
 }
 
 p input {
 	margin-left: 50px;
 	min-width: 320px;
-	font-size: 18pt;
+	font-size: 16pt;
 }
 
 select {
 	min-width: 320px;
-	font-size: 14pt;
+	font-size: 12pt;
 	margin-left: 40px;
 }
 
 #blank-space {
 	width: 100%;
-	height: 105px;
+	height: 94px;
+}
+
+@media (max-width: 600px) {
+	h1 {
+		text-align: center;
+	}
+
+	form {
+		min-width: 95vw;
+	}
+
+	form p {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 515px) {
+	form p {
+		flex-direction: column;
+		align-items: center;
+		margin: 10px;
+	}
+
+	label {
+		font-size: 16pt;
+		margin: 0;
+	}
+
+	p input {
+		font-size: 14pt;
+		margin: 0;
+	}
+
+	p select {
+		margin: 0;
+		font-size: 14pt;
+	}
+
+	.button {
+		margin-top: 15px;
+	}
+}
+
+@media (max-width: 400px) {
+	h1 {
+		font-size: 20pt;
+	}
+
+	p input {
+		font-size: 13pt;
+		min-width: 250px;
+	}
+
+	p select {
+		min-width: 200px;
+		font-size: 11pt;
+	}
 }

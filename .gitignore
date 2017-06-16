@@ -1,6 +1,7 @@
 *.pyc
 /media
 __pycache__
-staticfiles
+/staticfiles
 myvenv
 .env
+*.log

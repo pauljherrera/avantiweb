@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$('.fill-in01').each(function() {
 				$(this).html('Register');
 			});
-			$('.fill-in02').html('Registering you accept our Terms and Conditions.')
+			$('.fill-in02').html('Registering you accept our <a href="/account/terms/">Terms and Conditions</a>.')
 			$('#pop-login').show().css('display', 'flex');
 			$('#blur').show();
 		}

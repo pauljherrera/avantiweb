@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['AVANTIFS_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ['AVANTIFS_DEBUG'])
+DEBUG = False #bool(os.environ['AVANTIFS_DEBUG'])
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -174,9 +174,7 @@ PARLER_LANGUAGES = {
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-# STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -205,19 +203,12 @@ EMAIL_USE_TLS = True
 # Sitemaps.
 SITE_ID = 1
 
-# Logging settings.
+# Login settings.
 from django.core.urlresolvers import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('courses:plans')
 LOGIN_URL = reverse_lazy('main')
 LOGOUT_REDIRECT_URL = reverse_lazy('main')
-
-# URL.
-ABSOLUTE_URL_OVERRIDES = {
-    'auth.user' : lambda u: reverse_lazy('account:user_detail', 
-                                         args=[u.username])
-}
-
 
 # Cache settings.
 CACHES = {
@@ -250,3 +241,37 @@ db_from_env = dj_database_url.config(default=os.environ['AVANTIFS_DATABASE_URL']
 DATABASES['default'].update(db_from_env)
 
 APPEND_SLASH=True
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'account': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
