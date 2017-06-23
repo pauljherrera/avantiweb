@@ -1,0 +1,58 @@
+{% extends "courses/plans.html" %}
+{% load staticfiles %}
+
+{% block style %}
+	{{ block.super }}
+	<link href="{% static 'courses/complete_registry.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block registry %}
+
+	<div id="{% if complete_registration %}blur-no-show{% else %}blur{% endif %}"></div>
+
+	<div id="{% if complete_registration %}data-no-show{% else %}pop-data{% endif %}">
+ 		<div class="social">
+ 			<img id='favicon-login' src="{% static 'account/images/favicon.png' %}" height="100">
+ 			<h4>Complete your registration data:</h4>
+			<div class="line"></div>
+			<form action="." method="post" id="post-form">
+				{{ form.as_p }}
+				<p><input type="submit" value="Done" class="done-button"></p>
+				{% csrf_token %}
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block js %}
+	{{ block.super }}
+	<script>
+		$(document).ready(function(){
+			$('#post-form').on('submit', function(event){
+			    event.preventDefault();
+			    create_post();
+			});
+
+			function create_post() {
+			    $.ajax({
+			        url : "{% url 'courses:save_registration_data' %}",
+			        type : "POST", // http method
+			        data : {
+			        		id_first_name : $('#id_first_name').val(),
+			        		id_last_name: $('#id_last_name').val(),
+			        		id_email: $('#id_email').val(),
+			        		csrfmiddlewaretoken: '{{ csrf_token }}',}, // data sent with the post request
+
+			        // handle a successful response
+			        success : function(json) {
+			            $('#post-form').val(''); // remove the value from the input
+			            $('#pop-data').fadeOut(500);
+						$('#blur').fadeOut(500);
+			        },
+			    });
+			};
+		});
+	</script>
+{% endblock %}
+

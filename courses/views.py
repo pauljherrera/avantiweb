@@ -7,23 +7,39 @@ from django.db.models import Count
 from django.urls import reverse
 from django.conf import settings
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 import os
 
 from common.decorators import ajax_required
 from .forms import ModuleFormSet, QuestionForm
+from account.forms import UserEditForm
 from .models import Course, Module, Questions
 from account.models import Profile
 
 # Create your views here.
 @login_required
 def plans(request):
+	u = request.user
 	# Redirect to the strategies views if the user is already 
 	# enrolled in a course.
-	if request.user.courses_joined.all():
+	if u.courses_joined.all():
 		return redirect('courses:strategies')
 
-	return render(request, 'courses/plans.html')
+	# Checks if the e-mail and names are already registered.
+	if bool(u.email) & bool(u.first_name) & bool(u.last_name):
+		completeRegistration = True
+		form = False
+	else:
+		obj = get_object_or_404(User, pk=request.user.id)
+		form = UserEditForm(instance=obj)
+		completeRegistration = False
+
+	return render(request, 'courses/complete_registry.html', {'complete_registration' : completeRegistration,
+												  'form' : form})
+
+
 
 
 @login_required
@@ -133,4 +149,14 @@ def download_ea_ctrader(request):
 
 	return response
 
+@ajax_required
+@require_http_methods(['POST'])
+def save_registration_data(request):
+	user = get_object_or_404(User, id=request.user.id)
+	data = request.POST
+	user.first_name = data['id_first_name']
+	user.last_name = data['id_last_name']
+	user.email = data['id_email']
+	user.save()
 
+	return JsonResponse({'status': 'ok'})

@@ -1,0 +1,122 @@
+#blur {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	opacity: 0.25;
+	z-index: 1;
+
+	background-image: url(images/texture_small.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(4px);
+}
+
+#pop-data {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: white;
+
+	position: fixed;
+	width: 50vw;
+	min-width: 200px;
+	height: 80vh;
+	top: 50%;
+	right: 50%;
+	margin-top: -40vh;
+	margin-right: -25vw;
+	background-color: #121511;
+	border: 5px solid #707A2C;
+	z-index: 2;
+}
+
+#blur-no-show, #data-no-show {
+	display: none;
+}
+
+#favicon-login {
+	margin: 20px 0 0 0;
+}
+
+.line {
+	display: flex;
+	align-self: center;
+	border-top: 1px solid white;
+	margin: 50px 20px 30px 20px;
+}
+
+h4 {
+	margin: 20px;
+}
+
+form {
+	margin: 30px;
+}
+
+.done-button {
+	background: #a7bd43;
+	background-image: linear-gradient(to bottom, #a7bd43, #707A2C);
+	border-radius: 1px;
+	font-family: ClearSans-Regular;
+	color: #ffffff;
+	font-size: 18pt;
+	padding: 5px 15px;
+	margin: 10px 10px;
+	border: none;
+}
+
+.done-button:hover {
+	cursor: pointer;
+}
+
+@media (max-width: 800px) {
+	#pop-data {
+		right: 50%;
+		margin-right: -46vw;
+		width: 90vw;
+	}
+}
+
+@media (max-width: 435px) {
+	#favicon-login {
+		display: none;
+	}
+
+	h4 {
+		margin-top: 50px;
+	}
+}
+
+@media (max-width: 350px) {
+	.line {
+		display: none;
+	}
+
+	p {
+		margin: 5px;
+	}
+
+	.done-button {
+		margin-top: 40px;
+	}
+}
+
+@media (max-width: 350px) {
+	#pop-data {
+		right: 50%;
+		margin-right: -47.2vw;
+		width: 92vw;
+	}
+}

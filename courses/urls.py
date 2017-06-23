@@ -14,4 +14,5 @@ urlpatterns = [
 	url(r'^indicator_ctrader/$', views.download_indicator_ctrader, name='download_indicator_ctrader'),
 	url(r'^ea_mt4/$', views.download_ea_mt4, name='download_ea_mt4'),
 	url(r'^ea_ctrader/$', views.download_ea_ctrader, name='download_ea_ctrader'),
+	url(r'^save_registration_data/$', views.save_registration_data, name='save_registration_data'),	
 ]
