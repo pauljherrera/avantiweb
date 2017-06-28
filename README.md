@@ -7,6 +7,7 @@ Front page.
 ![alt text](common/images/avantiweb01.png)
 
 Responsive front page.
+
 ![alt text](common/images/avantiweb_IPhone.png)
 
 Learning center.
