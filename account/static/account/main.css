@@ -101,7 +101,7 @@ main{
 }
 
 #main-screen {
-	background: url('images/main-background.png') center no-repeat;
+	background: url('images/buildings.jpeg') center no-repeat;
 	background-size: cover;
 }
 
@@ -155,6 +155,7 @@ main{
 	text-align: center;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	text-shadow: 1px 1px 4px rgba(0,0,0,1);
 }
 
 #chart-main-title {
@@ -170,6 +171,9 @@ main{
 
 .centered-text {
 	text-align: center;
+	text-shadow: 1px 1px 4px rgba(0,0,0,1);
+	background-color: rgba(0,0,15,0.5);
+    padding: 8px;
 }
 
 #main-cta {
@@ -197,6 +201,14 @@ main{
 	margin-top: -40px;
 }
 
+.chart-wrapper {
+	background-color: rgba(0,0,15,0.5);
+	padding: 0px 15px 0px 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .ct-series-a .ct-line,
 .ct-series-a .ct-point  {
 	stroke: #a7bd43 !important;
@@ -221,13 +233,18 @@ main{
 
 .ct-vertical{
 	stroke: white;
-	opacity: 0.5;
+	opacity: 1;
 }
 
 .ct-label {
 	color: white;
 	opacity: 1;
 	font-size: 12pt;
+	text-shadow: 1px 1px 4px rgba(0,0,0,1);
+}
+
+.ct-chart-line {
+
 }
 
 
